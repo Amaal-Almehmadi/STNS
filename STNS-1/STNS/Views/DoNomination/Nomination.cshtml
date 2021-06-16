@@ -1,0 +1,165 @@
+﻿
+@model STNS.Models.Nomination
+@{
+    ViewBag.Title = "Nomination";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    #content{width:100%!important}
+</style>
+
+
+<div>
+    @using (Html.BeginForm("Nomination", "DoNomination", FormMethod.Post))
+    {
+      <span style="width:100px;padding-left: 20px;"> @Html.ActionLink("طباعة", "print")</span>
+    <span>
+        @Html.ActionLink("تحميل", "Downloads")
+    </span>
+
+        <h2 style="text-align:center">البيانات الاساسية </h2>
+        <table style="padding:20px;">
+            <tr>
+                <td><span class="head">السجل المدني للطفل</span></td>
+                <td>@Html.TextBoxFor(model => model.Child_Id, new { @class = "form-control", @placeholder = "السجل المدني للطفل أو رقم الإقامة" })<br /></td>
+                <td style="text-align:left !important"><span class="head">اسم الطفل</span></td>
+                <td>
+                    @Html.TextBoxFor(model => model.Child_Fullname, new { @class = "form-control", @placeholder = "الاسم الثلاثي للطفل" })<br />
+                </td>
+                <td><span class="head">جنس الطفل</span></td>
+                <td>
+                    @Html.DropDownListFor(model => model.Child_Gender, new List<SelectListItem> {
+    new SelectListItem(){ Text = "ذكر", Value = "ذكر" },
+            new SelectListItem() { Value = "أنثى",Text = "أنثى"  } }, new { @class = "form-control", @placeholder = "--الجنس--" })<br />
+                </td>
+            </tr>
+            <tr>
+                <td><span class="head">العمر</span></td>
+                <td>@Html.RadioButtonFor(model => model.age_type, "monthbtn", new { id = "monthbtn" })<p>بالاشهر</p></td>
+                <td>@Html.RadioButtonFor(model => model.age_type, "yearbtn", new { id = "yearbtn" })<p>بالسنوات</p></td>
+                <td>   <td ><span class="head">الجنسية </span></td>
+                <td>@Html.TextBoxFor(model => model.Child_Nationality, new { @class = "form-control", @placeholder = "جنسية الطفل" })<br /></td>
+            </tr>
+            <tr>
+
+                <td><span class="head">عمر الطفل</span></td>
+
+                <td>
+                    @Html.TextBoxFor(model => model.Monthly_Age, new { id = "month", @class = "form-control", @placeholder = "عمر الطفل بالأشهر" })<br />
+                </td>
+                <td>
+                    @Html.TextBoxFor(model => model.Years_Age, new { id = "year", @class = "form-control", @placeholder = "عمر الطفل بالسنوات" })<br />
+                </td>
+                <td>
+                <td><span class="head">تاريخ الميلاد</span></td>
+
+                <td>
+                    @Html.TextBoxFor(model => model.Child_BirthDate, new { @class = "form-control", @placeholder = "تاريخ ميلاد الطفل" })
+                    <br />
+                </td>
+            </tr>
+             
+            <tr>
+                <td><span class="head">السجل المدني للام</span></td>
+                <td>@Html.TextBoxFor(model => model.Mother_Nationad_ID, new { @class = "form-control", @placeholder = "السجل المدني للام أو رقم الإقامة" })<br /></td>
+                <td style="text-align:left !important"><span class="head">اسم الام</span></td>
+                <td>
+                    @Html.TextBoxFor(model => model.Mother_Name, new { @class = "form-control", @placeholder = "اسم الام" })<br />
+                </td>
+                <td><span class="head">جنسية الام</span></td>
+                <td>
+                    @Html.TextBoxFor(model => model.Mother_Nationality, new { @class = "form-control", @placeholder = "" })<br />
+                </td>
+
+            </tr>
+            <tr>
+
+                <td><span class="head">الكلية</span></td>
+                <td>
+                    @Html.TextBoxFor(model => model.College, new { @class = "form-control", @placeholder = "" })<br />
+                </td>
+                <td><span class="head">الحالة الإجتماعية </span></td>
+                <td>
+                    @Html.DropDownListFor(model => model.Mother_state, new List<SelectListItem> {
+    new SelectListItem(){ Text = "متزوجة", Value = "متزوجة" },
+          new SelectListItem(){ Text = "مطلقة", Value = "مطلقة" },
+           new SelectListItem(){ Text = "أرملة", Value = "أرملة" } }, new { @class = "form-control", @placeholder = "--إختياري--" })<br />
+                </td>
+               
+                <td style="text-align:left !important"><span class="head">موظفة/طالبة</span></td>
+                <td>
+                    @Html.DropDownListFor(model => model.role, new List<SelectListItem> {
+    new SelectListItem(){ Text = "موظفة", Value = "موظفة" },
+          new SelectListItem(){ Text = "طالبة", Value = "طالبة" } }, new { @class = "form-control", })<br />
+                </td>
+
+            </tr>
+
+        </table>
+
+
+        <h2 style="text-align:center">بيانات التواصل مع الام</h2>
+
+        <table style="width:80%;">
+            <tr>
+                <td><span class="head">رقم الجوال</span></td>
+                <td>@Html.TextBoxFor(model => model.Mother_Phone, new { @class = "form-control", @placeholder = "رقم الجوال للام" })</td>
+            </tr>
+            <tr><td><span class="head">الإيميل</span></td><td>@Html.TextBoxFor(model => model.Mother_Email, new { @class = "form-control", @placeholder = "إيميل الأم" })</td></tr>
+        </table>
+
+        <h2 style="text-align:center">بيانات التسجيل</h2>
+
+        <table style="width:100%;">
+            <tr>
+                <td><span class="head">الفرع</span></td>
+                <td>
+                    @Html.DropDownListFor(model => model.branch, new List<SelectListItem> {
+    new SelectListItem(){ Text = "الفرع الرئيسي", Value = "الفرع الرئيسي" },
+new SelectListItem() { Value = "السلام",Text = "السلام"  },
+new SelectListItem() { Value = "العلوم",Text = "العلوم"  },
+            new SelectListItem() { Value = "التربية",Text = "التربية" }
+        }
+    , new { @class = "form-control", @placeholder = "--اختاري احد الفروع--" })
+                </td>
+            </tr>
+            <tr><td><span class="head">التاريخ الذي سيلتحق فية الطفل بالمركز</span></td><td>@Html.TextBoxFor(model => model.Start_date, new { @class = "form-control", @placeholder = "تاريخ الذي سيلتحق فيه طفلك بمركزنا" })</td></tr>
+            <tr>
+                <td><span class="head">معلومات اخرى</span></td>
+                <td>
+                    @Html.TextAreaFor(model => model.Other, new { @class = "form-control", @placeholder = "اي معلومات اخرى تودين اضافتها" })
+                </td>
+            </tr>
+        </table>
+
+
+        <div class="form-group">
+            <div class="col-md-4 col-md-offset-6" style="text-align:center">
+                <input type="submit" value="حفــظ " class="btn btn-default" />
+            </div>
+        </div>}
+        <script src="~/scripts/jquery-1.10.2.min.js"></script>
+        <script type="text/javascript">
+
+
+            $(document).ready(function () {
+
+                $("#yearbtn").change(function () {
+                    $("#year").prop("disabled", false);
+                    $("#month").prop("disabled", true);
+
+                }).trigger('change');
+                $("#monthbtn").change(function () {
+                    $("#month").prop("disabled", false);
+                    $("#year").prop("disabled", true);
+                });
+
+
+            });
+
+        </script>
+
+
+
+</div>

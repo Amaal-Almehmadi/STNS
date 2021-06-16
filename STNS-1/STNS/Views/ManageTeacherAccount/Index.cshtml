@@ -1,0 +1,55 @@
+﻿@model IEnumerable<STNS.Models.Teacher>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="text-align:center">ادارة الحساب</h2>
+
+
+<table class="table">
+    <tr>
+        <th style="text-align:center">
+            <span class="head"> <label>الاسم </label></span>
+        </th>
+        <th style="text-align:center">
+            <span class="head">    <label>الجنسية </label></span>
+        </th>
+        <th style="text-align:center">
+            <span class="head"><label>كلمة المرور </label></span>
+        </th>
+        <th style="text-align:center">
+            <span class="head"><label>الايميل  </label></span>
+        </th>
+        <th style="text-align:center">
+            <span class="head"><label>رقم الجوال </label></span>
+        </th>
+
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Teacher_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Teacher_Nationality)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Teacher_password)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Teacher_Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Teacher_Phone)
+        </td>
+        <td>
+            @Html.ActionLink("تعديل البيانات الشخصية", "Edit", new { id=item.Teacher_National_Id }) 
+        </td>
+    </tr>
+}
+
+</table>

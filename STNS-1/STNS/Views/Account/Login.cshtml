@@ -1,0 +1,30 @@
+﻿@using STNS.Models
+
+@model LoginModel
+@{
+    ViewBag.Title = "تسجيل الدخول";
+    Layout = "~/Views/Shared/_layout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    <div style="font-size:15px">
+        @Html.ValidationSummary()
+        <div class="holder">
+           <span class="head"><label> اسم المستخدم</label></span>
+            @Html.TextBoxFor(x => x.UserName, new { @class = "txtbox", placeholder = Html.DisplayNameFor(x => x.UserName) })
+
+        </div>
+        <div class="holder">
+            <span class="head"><label> كلمة المرور</label></span>
+            @Html.PasswordFor(x => x.Password, new { @class = "txtbox", placeholder = Html.DisplayNameFor(x => x.Password) })
+
+        </div>
+        <div style="padding:5px">
+            <input type="submit" value="دخول" class="btn" />
+
+            @Html.ActionLink("هل نسيت كلمة المرور ؟", "ForgotPassword", "Account")
+        </div>
+    </div>
+}
+

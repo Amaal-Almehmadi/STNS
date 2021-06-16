@@ -1,0 +1,76 @@
+﻿@model STNS.Models.Parent
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="text-align:center">تعديل بيانات الملف الشخصي</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <span class="head">
+                <label>الاسم </label></span>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Parent_Name, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Parent_Name, "", new { @class = "text-danger" })
+                </div>
+</div>
+
+        @Html.HiddenFor(model => model.Parent_National_Id)
+
+        <div class="form-group">
+            <span class="head">
+                <label>الجنسية </label></span>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Parent_Nationality, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Parent_Nationality, "", new { @class = "text-danger" })
+                </div>
+</div>
+
+        <div class="form-group">
+            <span class="head">
+                <label>كلمة المرور </label></span>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Parent_password, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Parent_password, "", new { @class = "text-danger" })
+                </div>
+</div>
+
+        <div class="form-group">
+            <span class="head">
+                <label>الايميل </label></span>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Parent_Email, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Parent_Email, "", new { @class = "text-danger" })
+                </div>
+</div>
+
+        <div class="form-group">
+            <span class="head">
+                <label>رقم الجوال  </label></span>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Parent_Phone, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Parent_Phone, "", new { @class = "text-danger" })
+                </div>
+</div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="حفظ" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("العودة للصفحة السابقة", "Index")
+</div>

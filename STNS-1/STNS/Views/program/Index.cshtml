@@ -1,0 +1,48 @@
+﻿@model IEnumerable<STNS.Models.Program>
+
+@{
+    ViewBag.Title = "Index";
+}
+<h2 style="text-align:center">إدارة برامج روضة سنابل طيبة</h2>
+
+<p>
+    @Html.ActionLink("إضافة برنـامج", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th style="text-align:center">
+            <span class="head">العمـر بالأشهر</span>
+        </th>
+
+        <th style="text-align:center">
+            <span class="head">العمـر بالسنة</span>
+        </th>
+        <th style="text-align:center">
+            <span class="head">اسم البرنامج</span>
+        </th>
+        <th></th>
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Program_Age_ByMonth)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Program_Age_ByYear)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Program_Name)
+            </td>
+            <td>
+                @Html.ActionLink("تعديل", "Edit", new { id = item.Program_Id }) |
+                @Html.ActionLink("تفاصيل البرنامج", "Details", new { id = item.Program_Id }) |
+                @Html.ActionLink("حذف", "Delete", new { id = item.Program_Id })
+            </td>
+        </tr>
+    }
+
+</table>

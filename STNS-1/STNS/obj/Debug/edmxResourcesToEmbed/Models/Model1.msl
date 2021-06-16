@@ -1,0 +1,205 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="STNSModelStoreContainer" CdmEntityContainer="STNSEntities">
+    <EntitySetMapping Name="C__MigrationHistory">
+      <EntityTypeMapping TypeName="STNSModel.C__MigrationHistory">
+        <MappingFragment StoreEntitySet="__MigrationHistory">
+          <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+          <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Adminstrators">
+      <EntityTypeMapping TypeName="STNSModel.Adminstrator">
+        <MappingFragment StoreEntitySet="Adminstrator">
+          <ScalarProperty Name="Admin_Id" ColumnName="Admin_Id" />
+          <ScalarProperty Name="Admin_Name" ColumnName="Admin_Name" />
+          <ScalarProperty Name="Admin_National_Id" ColumnName="Admin_National_Id" />
+          <ScalarProperty Name="Admin_Nationality" ColumnName="Admin_Nationality" />
+          <ScalarProperty Name="Admin_password" ColumnName="Admin_password" />
+          <ScalarProperty Name="Admin_Username" ColumnName="Admin_Username" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Albums">
+      <EntityTypeMapping TypeName="STNSModel.Album">
+        <MappingFragment StoreEntitySet="Albums">
+          <ScalarProperty Name="AlbumId" ColumnName="AlbumId" />
+          <ScalarProperty Name="AlbumTitle" ColumnName="AlbumTitle" />
+          <ScalarProperty Name="Photo" ColumnName="Photo_FileId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Appointments">
+      <EntityTypeMapping TypeName="STNSModel.Appointment">
+        <MappingFragment StoreEntitySet="Appointment">
+          <ScalarProperty Name="Appointment_Number" ColumnName="Appointment_Number" />
+          <ScalarProperty Name="Prnt_id" ColumnName="Prnt_id" />
+          <ScalarProperty Name="Chld_id" ColumnName="Chld_id" />
+          <ScalarProperty Name="Prnt_Name" ColumnName="Prnt_Name" />
+          <ScalarProperty Name="Chld_Name" ColumnName="Chld_Name" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Blogs">
+      <EntityTypeMapping TypeName="STNSModel.Blog">
+        <MappingFragment StoreEntitySet="Blogs">
+          <ScalarProperty Name="Blog_Number" ColumnName="Blog_Number" />
+          <ScalarProperty Name="Blog_Content" ColumnName="Blog_Content" />
+          <ScalarProperty Name="Blog_CreatedAt" ColumnName="Blog_CreatedAt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Children">
+      <EntityTypeMapping TypeName="STNSModel.Child">
+        <MappingFragment StoreEntitySet="Child">
+          <ScalarProperty Name="Child_Name" ColumnName="Child_Name" />
+          <ScalarProperty Name="Child_Age" ColumnName="Child_Age" />
+          <ScalarProperty Name="Child_National_Id" ColumnName="Child_National_Id" />
+          <ScalarProperty Name="Child_Nationality" ColumnName="Child_Nationality" />
+          <ScalarProperty Name="Child_Gender" ColumnName="Child_Gender" />
+          <ScalarProperty Name="Child_BirthDate" ColumnName="Child_BirthDate" />
+          <ScalarProperty Name="Cls_Id" ColumnName="Cls_Id" />
+          <ScalarProperty Name="Mother" ColumnName="Mother" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Classes">
+      <EntityTypeMapping TypeName="STNSModel.Class">
+        <MappingFragment StoreEntitySet="Class">
+          <ScalarProperty Name="Class_Id" ColumnName="Class_Id" />
+          <ScalarProperty Name="Class_Name" ColumnName="Class_Name" />
+          <ScalarProperty Name="Prog_Id" ColumnName="Prog_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Class_Activity">
+      <EntityTypeMapping TypeName="STNSModel.Class_Activity">
+        <MappingFragment StoreEntitySet="Class_Activity">
+          <ScalarProperty Name="Activity_number" ColumnName="Activity_number" />
+          <ScalarProperty Name="Activity_date" ColumnName="Activity_date" />
+          <ScalarProperty Name="Activity_Description" ColumnName="Activity_Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Delegations">
+      <EntityTypeMapping TypeName="STNSModel.Delegation">
+        <MappingFragment StoreEntitySet="Delegation">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="child_Id" ColumnName="child_Id" />
+          <ScalarProperty Name="Parent_id" ColumnName="Parent_id" />
+          <ScalarProperty Name="Delegated_person" ColumnName="Delegated_person" />
+          <ScalarProperty Name="Reason" ColumnName="Reason" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Delegated_person_id" ColumnName="Delegated_person_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Events">
+      <EntityTypeMapping TypeName="STNSModel.Event">
+        <MappingFragment StoreEntitySet="Event">
+          <ScalarProperty Name="Event_Number" ColumnName="Event_Number" />
+          <ScalarProperty Name="Event_Title" ColumnName="Event_Title" />
+          <ScalarProperty Name="Event_Description" ColumnName="Event_Description" />
+          <ScalarProperty Name="Start_date" ColumnName="Start_date" />
+          <ScalarProperty Name="End_date" ColumnName="End_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FAQs">
+      <EntityTypeMapping TypeName="STNSModel.FAQ">
+        <MappingFragment StoreEntitySet="FAQ">
+          <ScalarProperty Name="FAQ_Number" ColumnName="FAQ_Number" />
+          <ScalarProperty Name="FAQ_Question" ColumnName="FAQ_Question" />
+          <ScalarProperty Name="FAQ_Answer" ColumnName="FAQ_Answer" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Files">
+      <EntityTypeMapping TypeName="STNSModel.File">
+        <MappingFragment StoreEntitySet="Files">
+          <ScalarProperty Name="FileId" ColumnName="FileId" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="contentType" ColumnName="contentType" />
+          <ScalarProperty Name="content" ColumnName="content" />
+          <ScalarProperty Name="Discriminator" ColumnName="Discriminator" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Nominations">
+      <EntityTypeMapping TypeName="STNSModel.Nomination">
+        <MappingFragment StoreEntitySet="Nomination">
+          <ScalarProperty Name="Child_Id" ColumnName="Child_Id" />
+          <ScalarProperty Name="Child_Fullname" ColumnName="Child_Fullname" />
+          <ScalarProperty Name="Child_Gender" ColumnName="Child_Gender" />
+          <ScalarProperty Name="Child_BirthDate" ColumnName="Child_BirthDate" />
+          <ScalarProperty Name="Child_Age" ColumnName="Child_Age" />
+          <ScalarProperty Name="Child_Nationality" ColumnName="Child_Nationality" />
+          <ScalarProperty Name="Mother_Name" ColumnName="Mother_Name" />
+          <ScalarProperty Name="Mother_Nationality" ColumnName="Mother_Nationality" />
+          <ScalarProperty Name="Mother_Phone" ColumnName="Mother_Phone" />
+          <ScalarProperty Name="Mother_Email" ColumnName="Mother_Email" />
+          <ScalarProperty Name="Pranch" ColumnName="Pranch" />
+          <ScalarProperty Name="Start_date" ColumnName="Start_date" />
+          <ScalarProperty Name="Other" ColumnName="Other" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Parents">
+      <EntityTypeMapping TypeName="STNSModel.Parent">
+        <MappingFragment StoreEntitySet="Parent">
+          <ScalarProperty Name="Parent_Name" ColumnName="Parent_Name" />
+          <ScalarProperty Name="Parent_National_Id" ColumnName="Parent_National_Id" />
+          <ScalarProperty Name="Parent_Nationality" ColumnName="Parent_Nationality" />
+          <ScalarProperty Name="Parent_password" ColumnName="Parent_password" />
+          <ScalarProperty Name="Parent_Username" ColumnName="Parent_Username" />
+          <ScalarProperty Name="Parent_Email" ColumnName="Parent_Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Photos">
+      <EntityTypeMapping TypeName="STNSModel.Photo">
+        <MappingFragment StoreEntitySet="Photos">
+          <ScalarProperty Name="PhotoId" ColumnName="PhotoId" />
+          <ScalarProperty Name="PhotoTitle" ColumnName="PhotoTitle" />
+          <ScalarProperty Name="photoDate" ColumnName="photoDate" />
+          <ScalarProperty Name="AlbumId" ColumnName="AlbumId" />
+          <ScalarProperty Name="UserPhoto_FileId" ColumnName="UserPhoto_FileId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Programs">
+      <EntityTypeMapping TypeName="STNSModel.Program">
+        <MappingFragment StoreEntitySet="Program">
+          <ScalarProperty Name="Program_Id" ColumnName="Program_Id" />
+          <ScalarProperty Name="Program_Name" ColumnName="Program_Name" />
+          <ScalarProperty Name="Program_Age" ColumnName="Program_Age" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Teachers">
+      <EntityTypeMapping TypeName="STNSModel.Teacher">
+        <MappingFragment StoreEntitySet="Teacher">
+          <ScalarProperty Name="Teacher_Id" ColumnName="Teacher_Id" />
+          <ScalarProperty Name="Teacher_Name" ColumnName="Teacher_Name" />
+          <ScalarProperty Name="Teacher_National_Id" ColumnName="Teacher_National_Id" />
+          <ScalarProperty Name="Teacher_Nationality" ColumnName="Teacher_Nationality" />
+          <ScalarProperty Name="Teacher_password" ColumnName="Teacher_password" />
+          <ScalarProperty Name="Teacher_Username" ColumnName="Teacher_Username" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Useful_Links">
+      <EntityTypeMapping TypeName="STNSModel.Useful_Links">
+        <MappingFragment StoreEntitySet="Useful_Links">
+          <ScalarProperty Name="Link_Number" ColumnName="Link_Number" />
+          <ScalarProperty Name="Link_Title" ColumnName="Link_Title" />
+          <ScalarProperty Name="Link_href" ColumnName="Link_href" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

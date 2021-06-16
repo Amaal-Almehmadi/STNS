@@ -1,0 +1,50 @@
+﻿@model IEnumerable<STNS.Models.Event>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_layout.cshtml";
+}
+
+<h2 style="text-align:center"> الأنشطة و الفعاليات</h2>
+
+@if (Session["Admin"] != null)
+{
+    <p>
+        @Html.ActionLink("اضافة نشاط جديد", "Create")
+    </p>
+}
+
+
+
+@foreach (var item in Model)
+{
+    <div class="borderdDv">
+        <div class="halfDv">
+            <a href="@Url.Action("details",new { Id=item.Event_Number})">
+                <div>
+                    @Html.DisplayFor(modelItem => item.Event_Title)
+                </div>
+                <div>
+                    @Html.DisplayFor(modelItem => item.Event_Description)
+                </div>
+                <div>
+                    @Html.DisplayFor(modelItem => item.DOE)
+                </div>
+
+
+
+
+            </a>
+        </div>
+        @if (Session["Admin"] != null)
+        {
+            <div class="halfDv">
+
+                @Html.ActionLink("تعديل", "Edit", new { id = item.Event_Number })
+                <text>|</text>
+
+                @Html.ActionLink("حذف", "Delete", new { id = item.Event_Number })
+
+
+            </div>  }
+    </div>
+}

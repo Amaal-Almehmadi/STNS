@@ -1,0 +1,51 @@
+﻿@model STNS.Models.Rotator
+@{
+    ViewBag.Title = "AddImage";
+}
+
+<h2 style="text-align:center">اضافة صورة للشريط الاعلاني في الصفحة الرئيسية</h2>
+@using (Html.BeginForm("AddImage", "Home", FormMethod.Post,
+                                                                            new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <div class="editor-label">
+            <span class="head"> <label>  اختر الصورة</label></span>
+        </div>
+        <div class="editor-field">
+            <input type="file" id="ImagePath" name="ImagePath" value="عرض" />
+        </div>
+        <div class="form-group">
+            <span class="head"> <label> ادخل عنوان الشريط الالكتروني </label></span>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <span class="head">
+                <label> ادخل عنوان الرابط اللي ينقر عليه المستخدم</label>
+            </span>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.HrefTitle, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.HrefTitle, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <span class="head">
+                <label> ادخل الرابط</label>
+            </span>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Href, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Href, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <p>
+            <input type="submit" value="حفظ" />
+        </p>
+    </fieldset>
+    <p>@Html.ActionLink("العودة للصفحة السابقة", "Index", "Home")</p>
+}
+
+

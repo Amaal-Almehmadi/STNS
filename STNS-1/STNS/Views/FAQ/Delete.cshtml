@@ -1,0 +1,42 @@
+﻿@model STNS.Models.FAQ
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_layout.cshtml";
+}
+
+<h2 style="text-align:center">حذف السؤال</h2>
+
+<h3>هل انت متاكد انك تريد حذف هذا السؤال؟</h3>
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FAQ_Question)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FAQ_Question)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FAQ_Answer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FAQ_Answer)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="حذف" class="btn btn-danger" /> |
+            @Html.ActionLink("عودة الى القائمة", "Index")
+        </div>
+    }
+</div>

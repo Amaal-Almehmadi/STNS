@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="67c464c86eb64d6ba7ee06eb03a7abd2" Name="Diagram1" ZoomLevel="72">
+        <EntityTypeShape EntityType="STNSModel.C__MigrationHistory" Width="1.5" PointX="7.75" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="STNSModel.Adminstrator" Width="1.5" PointX="9.75" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="STNSModel.Album" Width="1.5" PointX="3.625" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="STNSModel.Appointment" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="STNSModel.Blog" Width="1.5" PointX="8.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="STNSModel.Child" Width="1.5" PointX="6" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="STNSModel.Class" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="STNSModel.Class_Activity" Width="1.5" PointX="9.75" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="STNSModel.Delegation" Width="1.5" PointX="8.25" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="STNSModel.Event" Width="1.5" PointX="10.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="STNSModel.FAQ" Width="1.5" PointX="10.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="STNSModel.File" Width="1.5" PointX="0.75" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="STNSModel.Nomination" Width="1.5" PointX="0.75" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="STNSModel.Parent" Width="1.5" PointX="0.75" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="STNSModel.Photo" Width="1.5" PointX="5.875" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="STNSModel.Program" Width="1.5" PointX="1.5" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="STNSModel.Teacher" Width="1.5" PointX="2.75" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="STNSModel.Useful_Links" Width="1.5" PointX="4.75" PointY="13" IsExpanded="true" />
+        <AssociationConnector Association="STNSModel.FK_dbo_Albums_dbo_Files_Photo_FileId" ManuallyRouted="false" />
+        <AssociationConnector Association="STNSModel.FK_Appointment_Child" ManuallyRouted="false" />
+        <AssociationConnector Association="STNSModel.FK_Appointment_Parent" ManuallyRouted="false" />
+        <AssociationConnector Association="STNSModel.FK_Child_Class" ManuallyRouted="false" />
+        <AssociationConnector Association="STNSModel.FK_Child_Class1" ManuallyRouted="false" />
+        <AssociationConnector Association="STNSModel.FK_Delegation_Class" ManuallyRouted="false" />
+        <AssociationConnector Association="STNSModel.FK_Class_Program" ManuallyRouted="false" />
+        <AssociationConnector Association="STNSModel.FK_dbo_Photos_dbo_Files_UserPhoto_FileId" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,73 @@
+﻿@model IEnumerable<STNS.Models.Weekly_Task>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@if (Session["teacher"] != null)
+{
+
+    <h2 style="text-align:center">المهام الاسبوعية للاطفال</h2>
+@Html.ActionLink("اضافة ", "Create")
+}
+
+<table class="table">
+    <tr>
+        <th style="text-align:center">
+            <span class="head"><label>رقم الأسبوع </label></span>
+        </th>
+        <th style="text-align:center">
+            <span class="head"> <label>يوم الاحد </label></span>
+</th>
+        <th style="text-align:center">
+            <span class="head">   <label>يوم الاثنين </label></span>
+</th>
+        <th style="text-align:center">
+            <span class="head">  <label>يوم الثلاثاء </label></span>
+</th>
+        <th style="text-align:center">
+            <span class="head"> <label>يوم الاربعاء </label></span>
+</th>
+        <th style="text-align:center">
+            <span class="head">  <label>يوم الخميس </label></span>
+</th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Weely_Number)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sun)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mon)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tue)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Wed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Thu)
+            </td>
+            <td>
+
+                @if (Session["teacher"] != null)
+				{    
+
+                    @Html.ActionLink("تعديل", "Edit", new { id = item.Weely_Number }) |  <hr/>
+
+                    @Html.ActionLink("حذف", "Delete", new { id = item.Weely_Number })
+
+                }
+            </td>
+        </tr>
+    }
+</table>

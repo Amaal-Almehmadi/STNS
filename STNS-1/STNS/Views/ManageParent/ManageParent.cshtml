@@ -1,0 +1,63 @@
+﻿
+@model IEnumerable<STNS.Models.Parent>
+
+@{
+    ViewBag.Title = "ManageParent";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="text-align:center">إدارة بيانات الأم</h2>
+
+<table class="table">
+    <tr>
+        <th style="text-align:center;">
+            <span class="head">  اسـم الأم</span>
+        </th>
+
+        <th style="text-align:center">
+            <span class="head">الهوية الوطنية</span>
+        </th>
+        <th style="text-align:center">
+            <span class="head">الجنسية</span>
+        </th>
+        <th style="text-align:center">
+            <span class="head">الرقم السري</span>
+        </th>
+
+        <th style="text-align:center">
+            <span class="head">اسم المستخدم</span>
+        </th>
+
+        <th></th>
+
+    </tr>
+
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Parent_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Parent_National_Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Parent_Nationality)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Parent_password)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Parent_Username)
+            </td>
+            <td>
+                @Html.ActionLink("تعديل", "EditParent", new { id = item.Parent_National_Id }) |
+                @Html.ActionLink("تفاصيل بيانات الأم", "ParentDetails", new { id = item.Parent_National_Id }) |
+                @Html.ActionLink("حذف", "DeleteParent", new { id = item.Parent_National_Id })
+            </td>
+        </tr>
+    }
+
+</table>
+

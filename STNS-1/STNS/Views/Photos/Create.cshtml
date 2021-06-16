@@ -1,0 +1,117 @@
+﻿@model  STNS.Models.Photo
+
+@{
+    ViewBag.Title = "Create";
+}
+<link href="~/Content/datepicker.css" rel="stylesheet" />
+<h2 style="text-align:center">إضافة صورة</h2>
+
+
+@using (Html.BeginForm("Create", "Photos", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+        <hr />
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="container">
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-4 col-md-offset-6" style="text-align:right">
+                        @Html.DropDownList("AlbumId", new SelectList(ViewBag.Albums, "AlbumId", "AlbumTitle"), new { @class = "form-control" })
+
+                        @Html.ValidationMessageFor(model => model.AlbumId, "", new { @class = "text-danger" })
+
+                    </div>
+                    <div class="col-md-2" style="text-align:right">
+                        <span class="head">الألبوم</span>
+                    </div>
+
+
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-4 col-md-offset-6" style="text-align:right">
+                        @Html.EditorFor(model => model.PhotoTitle, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.PhotoTitle, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-md-2" style="text-align:right">
+                        <span class="head">اسم الصورة</span>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-4 col-md-offset-6" style="text-align:right">
+                        @Html.EditorFor(model => model.photoDate, new { htmlAttributes = new { @class = "form-control datepicker" } })
+                        @Html.ValidationMessageFor(model => model.photoDate, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-md-2" style="text-align:right">
+                        <span class="head">تاريخ الصورة </span>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-4 col-md-offset-6" style="text-align:right">
+                        <input type="file" id="upload" name="upload" />
+                    </div>
+                    <div class="col-md-2" style="text-align:right">
+                        <span class="head">الصورة</span>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-4 col-md-offset-6" style="text-align:right">
+                    <input type="submit" value="اضافة" class="btn btn-default" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <img id="blah" src="=#" alt="" style="max-height:250px;" />
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("عودة للقائمة", "Index")
+</div>
+
+@*<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>*@
+@*<script src="~/Content/scripts/jquery.validate.min.js"></script>
+<script src="~/Content/scripts/query.validate.unobtrusive.min.js"></script>*@
+
+<script>
+  
+
+                    function readURL(input) {
+
+                        if (input.files && input.files[0]) {
+                            var reader = new FileReader();
+
+                            reader.onload = function (e) {
+                                $('#blah').attr('src', e.target.result);
+                            }
+
+                            reader.readAsDataURL(input.files[0]);
+                        }
+                    }
+
+                    $("#upload").change(function () {
+                        readURL(this);
+                    });</script>
+

@@ -1,0 +1,73 @@
+﻿@model STNS.Models.Weekly_Task
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="text-align:center">انشاء مهام اسبوعية للاطفال </h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+      
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <dt>
+                <span class="head">   <label>يوم الاحد </label></span>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Sun, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Sun, "", new { @class = "text-danger" })
+                </div>
+</div>
+
+        <div class="form-group">
+            <dt>
+                <span  class="head">   <label>يوم الاثنين </label></span>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Mon, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Mon, "", new { @class = "text-danger" })
+                </div>
+</div>
+
+        <div class="form-group">
+            <dt>
+                <span class="head">   <label>يوم الثلاثاء </label></span>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Tue, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Tue, "", new { @class = "text-danger" })
+                </div>
+</div>
+
+        <div class="form-group">
+            <dt>
+                <span  class="head">   <label>يوم الاربعاء </label></span>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Wed, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Wed, "", new { @class = "text-danger" })
+                </div>
+</div>
+
+        <div class="form-group">
+            <dt>
+                <span  class="head">   <label>يوم الخميس </label></span>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Thu, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Thu, "", new { @class = "text-danger" })
+                </div>
+</div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="اضافة" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("العودة للقائمة", "Index")
+</div>

@@ -1,0 +1,24 @@
+﻿@model List<STNS.Models.Blog>
+@{
+    ViewBag.Title = "Blogs";
+    Layout = "~/Views/Shared/_layout.cshtml";
+}
+
+@if (Session["Admin"] != null || Session["parent"] != null || Session["teacher"] != null)
+{
+
+    <a href="/comunication/CreateBlog/">انشاء تدوينه</a>
+
+}
+
+<h2>التدوينات</h2>
+@foreach (var blog in Model)
+{
+    <div class="blog">
+        @blog.Blog_Content
+        <small>@blog.Blog_CreatedAt</small>
+
+    </div>
+}
+
+

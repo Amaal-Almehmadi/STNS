@@ -1,0 +1,47 @@
+﻿@model IEnumerable<STNS.Models.Photo>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 style="text-align:center">إعدادات الصور</h2>
+
+<p>
+    @Html.ActionLink("إضافة صورة", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th style="text-align:center">
+            <span class="head">اسم الصورة</span>
+        </th>
+        <th style="text-align:center">
+            <span class="head">تاريخ الصورة</span>
+        </th>
+        <th style="text-align:center">
+            <span class="head">الصورة</span>
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhotoTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.photoDate)
+            </td>
+            <td>
+
+                <img src="~/Files?id=@item.UserPhoto.FileId" style="max-width:400px;" />
+            </td>
+            <td>
+                @Html.ActionLink("تعديل", "Edit", new { id = item.PhotoId }) |
+                @Html.ActionLink("تفاصيل", "Details", new { id = item.PhotoId }) |
+                @Html.ActionLink("حذف", "Delete", new { id = item.PhotoId })
+            </td>
+        </tr>
+    }
+
+</table>

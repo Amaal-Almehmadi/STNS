@@ -1,0 +1,43 @@
+﻿@model STNS.Models.Useful_Links
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h2>روابط هامة</h2>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <span class="head"> <label>الموضوع</label></span>  
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Link_Title, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Link_Title, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+         
+                <span class="head">   <label>الرابط</label></span>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Link_href, new { htmlAttributes = new { @class = "form-control" } })
+
+                    @Html.ValidationMessageFor(model => model.Link_href, "", new { @class = "text-danger" })
+                </div>
+</div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="اضافة" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("عودة الى القائمة", "Index")
+</div>

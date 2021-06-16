@@ -1,0 +1,44 @@
+﻿@model IEnumerable<STNS.Models.Useful_Links>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@if (Session["Admin"] != null)
+{
+    <p>
+        @Html.ActionLink("اضافة رابط جديد", "Create")
+    </p>
+}
+
+<table class="table" style="width:100%">
+    <tr>
+        <th style="text-align:center">
+            <span style="head"> <label>الموضوع</label></span>  
+        </th>
+        <th style="text-align:center">
+            <span style="head"> <label>الرابط</label></span>
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Link_Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Link_href)
+            </td>
+            @if (Session["Admin"] != null)
+            {
+                <td>
+                    @Html.ActionLink("تعديل", "Edit", new { id = item.Link_Number })
+                    <text>|</text>
+
+                    @Html.ActionLink("حذف", "Delete", new { id = item.Link_Number })
+                </td>   }
+        </tr>}
+</table>

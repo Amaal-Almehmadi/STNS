@@ -1,0 +1,358 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="STNSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+    <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+    <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Adminstrator">
+    <Key>
+      <PropertyRef Name="Admin_Id" />
+    </Key>
+    <Property Name="Admin_Id" Type="int" Nullable="false" />
+    <Property Name="Admin_Name" Type="nchar" MaxLength="100" />
+    <Property Name="Admin_National_Id" Type="int" />
+    <Property Name="Admin_Nationality" Type="nchar" MaxLength="20" />
+    <Property Name="Admin_password" Type="nchar" MaxLength="20" />
+    <Property Name="Admin_Username" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Albums">
+    <Key>
+      <PropertyRef Name="AlbumId" />
+    </Key>
+    <Property Name="AlbumId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AlbumTitle" Type="nvarchar(max)" />
+    <Property Name="Photo_FileId" Type="int" />
+  </EntityType>
+  <EntityType Name="Appointment">
+    <Key>
+      <PropertyRef Name="Appointment_Number" />
+    </Key>
+    <Property Name="Appointment_Number" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Prnt_id" Type="int" />
+    <Property Name="Chld_id" Type="int" />
+    <Property Name="Prnt_Name" Type="nchar" MaxLength="100" />
+    <Property Name="Chld_Name" Type="nchar" MaxLength="100" />
+    <Property Name="Time" Type="date" />
+  </EntityType>
+  <EntityType Name="Blogs">
+    <Key>
+      <PropertyRef Name="Blog_Number" />
+    </Key>
+    <Property Name="Blog_Number" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Blog_Content" Type="nvarchar(max)" />
+    <Property Name="Blog_CreatedAt" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Child">
+    <Key>
+      <PropertyRef Name="Child_National_Id" />
+    </Key>
+    <Property Name="Child_Name" Type="nchar" MaxLength="100" />
+    <Property Name="Child_Age" Type="int" />
+    <Property Name="Child_National_Id" Type="int" Nullable="false" />
+    <Property Name="Child_Nationality" Type="nchar" MaxLength="20" />
+    <Property Name="Child_Gender" Type="nchar" MaxLength="10" />
+    <Property Name="Child_BirthDate" Type="date" />
+    <Property Name="Cls_Id" Type="int" />
+    <Property Name="Mother" Type="int" />
+  </EntityType>
+  <EntityType Name="Class">
+    <Key>
+      <PropertyRef Name="Class_Id" />
+    </Key>
+    <Property Name="Class_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Class_Name" Type="nchar" MaxLength="20" />
+    <Property Name="Prog_Id" Type="int" />
+  </EntityType>
+  <EntityType Name="Class_Activity">
+    <Key>
+      <PropertyRef Name="Activity_number" />
+    </Key>
+    <Property Name="Activity_number" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Activity_date" Type="datetime" />
+    <Property Name="Activity_Description" Type="nchar" MaxLength="1000" />
+  </EntityType>
+  <EntityType Name="Delegation">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="child_Id" Type="int" />
+    <Property Name="Parent_id" Type="int" />
+    <Property Name="Delegated_person" Type="nchar" MaxLength="100" />
+    <Property Name="Reason" Type="nchar" MaxLength="1000" />
+    <Property Name="Date" Type="date" />
+    <Property Name="Delegated_person_id" Type="int" />
+  </EntityType>
+  <EntityType Name="Event">
+    <Key>
+      <PropertyRef Name="Event_Number" />
+    </Key>
+    <Property Name="Event_Number" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Event_Title" Type="nchar" MaxLength="100" />
+    <Property Name="Event_Description" Type="nchar" MaxLength="1000" />
+    <Property Name="Start_date" Type="datetime" />
+    <Property Name="End_date" Type="datetime" />
+  </EntityType>
+  <EntityType Name="FAQ">
+    <Key>
+      <PropertyRef Name="FAQ_Number" />
+    </Key>
+    <Property Name="FAQ_Number" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FAQ_Question" Type="nchar" MaxLength="1000" />
+    <Property Name="FAQ_Answer" Type="nchar" MaxLength="1000" />
+  </EntityType>
+  <EntityType Name="Files">
+    <Key>
+      <PropertyRef Name="FileId" />
+    </Key>
+    <Property Name="FileId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FileName" Type="nvarchar" MaxLength="255" />
+    <Property Name="contentType" Type="nvarchar" MaxLength="150" />
+    <Property Name="content" Type="varbinary(max)" />
+    <Property Name="Discriminator" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Nomination">
+    <Key>
+      <PropertyRef Name="Child_Id" />
+    </Key>
+    <Property Name="Child_Id" Type="int" Nullable="false" />
+    <Property Name="Child_Fullname" Type="nchar" MaxLength="100" />
+    <Property Name="Child_Gender" Type="nchar" MaxLength="10" />
+    <Property Name="Child_BirthDate" Type="date" Nullable="false" />
+    <Property Name="Child_Age" Type="int" />
+    <Property Name="Child_Nationality" Type="nchar" MaxLength="30" />
+    <Property Name="Mother_Name" Type="nchar" MaxLength="100" />
+    <Property Name="Mother_Nationality" Type="nchar" MaxLength="30" />
+    <Property Name="Mother_Phone" Type="int" />
+    <Property Name="Mother_Email" Type="nvarchar(max)" />
+    <Property Name="Pranch" Type="nchar" MaxLength="20" />
+    <Property Name="Start_date" Type="date" />
+    <Property Name="Other" Type="nchar" MaxLength="1000" />
+  </EntityType>
+  <EntityType Name="Parent">
+    <Key>
+      <PropertyRef Name="Parent_National_Id" />
+    </Key>
+    <Property Name="Parent_Name" Type="nchar" MaxLength="100" />
+    <Property Name="Parent_National_Id" Type="int" Nullable="false" />
+    <Property Name="Parent_Nationality" Type="nchar" MaxLength="20" />
+    <Property Name="Parent_password" Type="nchar" MaxLength="20" />
+    <Property Name="Parent_Username" Type="nchar" MaxLength="10" />
+    <Property Name="Parent_Email" Type="nchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Photos">
+    <Key>
+      <PropertyRef Name="PhotoId" />
+    </Key>
+    <Property Name="PhotoId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PhotoTitle" Type="nvarchar(max)" />
+    <Property Name="photoDate" Type="datetime" Nullable="false" />
+    <Property Name="AlbumId" Type="int" />
+    <Property Name="UserPhoto_FileId" Type="int" />
+  </EntityType>
+  <EntityType Name="Program">
+    <Key>
+      <PropertyRef Name="Program_Id" />
+    </Key>
+    <Property Name="Program_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Program_Name" Type="nchar" MaxLength="20" />
+    <Property Name="Program_Age" Type="int" />
+  </EntityType>
+  <EntityType Name="Teacher">
+    <Key>
+      <PropertyRef Name="Teacher_Id" />
+    </Key>
+    <Property Name="Teacher_Id" Type="int" Nullable="false" />
+    <Property Name="Teacher_Name" Type="nchar" MaxLength="100" />
+    <Property Name="Teacher_National_Id" Type="int" />
+    <Property Name="Teacher_Nationality" Type="nchar" MaxLength="20" />
+    <Property Name="Teacher_password" Type="nchar" MaxLength="20" />
+    <Property Name="Teacher_Username" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Useful_Links">
+    <Key>
+      <PropertyRef Name="Link_Number" />
+    </Key>
+    <Property Name="Link_Number" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Link_Title" Type="nchar" MaxLength="100" />
+    <Property Name="Link_href" Type="nvarchar(max)" />
+  </EntityType>
+  <Association Name="FK_Appointment_Child">
+    <End Role="Child" Type="Self.Child" Multiplicity="0..1" />
+    <End Role="Appointment" Type="Self.Appointment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Child">
+        <PropertyRef Name="Child_National_Id" />
+      </Principal>
+      <Dependent Role="Appointment">
+        <PropertyRef Name="Chld_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Appointment_Parent">
+    <End Role="Parent" Type="Self.Parent" Multiplicity="0..1" />
+    <End Role="Appointment" Type="Self.Appointment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Parent">
+        <PropertyRef Name="Parent_National_Id" />
+      </Principal>
+      <Dependent Role="Appointment">
+        <PropertyRef Name="Prnt_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Child_Class">
+    <End Role="Parent" Type="Self.Parent" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Child" Type="Self.Child" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Parent">
+        <PropertyRef Name="Parent_National_Id" />
+      </Principal>
+      <Dependent Role="Child">
+        <PropertyRef Name="Mother" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Child_Class1">
+    <End Role="Class" Type="Self.Class" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Child" Type="Self.Child" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Class">
+        <PropertyRef Name="Class_Id" />
+      </Principal>
+      <Dependent Role="Child">
+        <PropertyRef Name="Cls_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Class_Program">
+    <End Role="Program" Type="Self.Program" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Class" Type="Self.Class" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Program">
+        <PropertyRef Name="Program_Id" />
+      </Principal>
+      <Dependent Role="Class">
+        <PropertyRef Name="Prog_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Albums_dbo_Files_Photo_FileId">
+    <End Role="Files" Type="Self.Files" Multiplicity="0..1" />
+    <End Role="Albums" Type="Self.Albums" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Files">
+        <PropertyRef Name="FileId" />
+      </Principal>
+      <Dependent Role="Albums">
+        <PropertyRef Name="Photo_FileId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Photos_dbo_Albums_AlbumId">
+    <End Role="Albums" Type="Self.Albums" Multiplicity="0..1" />
+    <End Role="Photos" Type="Self.Photos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Albums">
+        <PropertyRef Name="AlbumId" />
+      </Principal>
+      <Dependent Role="Photos">
+        <PropertyRef Name="AlbumId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Photos_dbo_Files_UserPhoto_FileId">
+    <End Role="Files" Type="Self.Files" Multiplicity="0..1" />
+    <End Role="Photos" Type="Self.Photos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Files">
+        <PropertyRef Name="FileId" />
+      </Principal>
+      <Dependent Role="Photos">
+        <PropertyRef Name="UserPhoto_FileId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Delegation_Class">
+    <End Role="Child" Type="Self.Child" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Delegation" Type="Self.Delegation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Child">
+        <PropertyRef Name="Child_National_Id" />
+      </Principal>
+      <Dependent Role="Delegation">
+        <PropertyRef Name="child_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="STNSModelStoreContainer">
+    <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Adminstrator" EntityType="Self.Adminstrator" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Albums" EntityType="Self.Albums" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Appointment" EntityType="Self.Appointment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Blogs" EntityType="Self.Blogs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Child" EntityType="Self.Child" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Class" EntityType="Self.Class" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Class_Activity" EntityType="Self.Class_Activity" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Delegation" EntityType="Self.Delegation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Event" EntityType="Self.Event" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FAQ" EntityType="Self.FAQ" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Files" EntityType="Self.Files" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Nomination" EntityType="Self.Nomination" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Parent" EntityType="Self.Parent" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Photos" EntityType="Self.Photos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Program" EntityType="Self.Program" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Teacher" EntityType="Self.Teacher" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Useful_Links" EntityType="Self.Useful_Links" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Appointment_Child" Association="Self.FK_Appointment_Child">
+      <End Role="Child" EntitySet="Child" />
+      <End Role="Appointment" EntitySet="Appointment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Appointment_Parent" Association="Self.FK_Appointment_Parent">
+      <End Role="Parent" EntitySet="Parent" />
+      <End Role="Appointment" EntitySet="Appointment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Child_Class" Association="Self.FK_Child_Class">
+      <End Role="Parent" EntitySet="Parent" />
+      <End Role="Child" EntitySet="Child" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Child_Class1" Association="Self.FK_Child_Class1">
+      <End Role="Class" EntitySet="Class" />
+      <End Role="Child" EntitySet="Child" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Class_Program" Association="Self.FK_Class_Program">
+      <End Role="Program" EntitySet="Program" />
+      <End Role="Class" EntitySet="Class" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Albums_dbo_Files_Photo_FileId" Association="Self.FK_dbo_Albums_dbo_Files_Photo_FileId">
+      <End Role="Files" EntitySet="Files" />
+      <End Role="Albums" EntitySet="Albums" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Photos_dbo_Albums_AlbumId" Association="Self.FK_dbo_Photos_dbo_Albums_AlbumId">
+      <End Role="Albums" EntitySet="Albums" />
+      <End Role="Photos" EntitySet="Photos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Photos_dbo_Files_UserPhoto_FileId" Association="Self.FK_dbo_Photos_dbo_Files_UserPhoto_FileId">
+      <End Role="Files" EntitySet="Files" />
+      <End Role="Photos" EntitySet="Photos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Delegation_Class" Association="Self.FK_Delegation_Class">
+      <End Role="Child" EntitySet="Child" />
+      <End Role="Delegation" EntitySet="Delegation" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,68 @@
+﻿@model STNS.Models.Teacher
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2 style="text-align:center">هل أنت متأكدة من حذف بيانات المعلمة؟</h2>
+
+
+<hr />
+<div class="dl-horizontal">
+    <div class="row">
+        <div class="col-md-10">
+            @Html.DisplayFor(model => model.Teacher_Name)
+        </div>
+
+        <div class="col-md-2">
+            <span class="head">اسم المعلمـة</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10">
+            @Html.DisplayFor(model => model.Teacher_National_Id)
+        </div>
+
+        <div class="col-md-2">
+            <span class="head">رقم الهوية الوطنية</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10">
+            @Html.DisplayFor(model => model.Teacher_Nationality)
+        </div>
+
+        <div class="col-md-2">
+            <span class="head">الجنسية</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10">
+            @Html.DisplayFor(model => model.Teacher_password)
+        </div>
+
+        <div class="col-md-2">
+            <span class="head">كلمة المرور</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10">
+            @Html.DisplayFor(model => model.Teacher_Username)
+        </div>
+
+        <div class="col-md-2">
+            <span class="head"> اسم المستخدم</span>
+        </div>
+    </div>
+    <br /><br />
+
+    @using (Html.BeginForm())
+            {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="حذف" class="btn btn-default" /> |
+            @Html.ActionLink("العودة للقائمة", "Index")
+        </div>
+    }
+</div>

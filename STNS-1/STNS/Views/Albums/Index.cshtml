@@ -1,0 +1,42 @@
+﻿@model IEnumerable<STNS.Models.Album>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 style="text-align:center">إعدادات الألبومات</h2>
+
+<p>
+    @Html.ActionLink("إضافة ألبــوم", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th style="text-align:center">
+            <span class="head">اسم الألبــوم</span>
+        </th>
+        <th style="text-align:center">
+            <span class="head">صورة غلاف الألبـوم</span>
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AlbumTitle)
+            </td>
+            <td>
+                <img src="~/Files?id=@item.Photo.FileId" style="max-width:200px;" />
+
+                <!-- display the image itself-->
+            </td>
+            <td>
+                @Html.ActionLink("تعديل", "Edit", new { id = item.AlbumId }) |
+                @Html.ActionLink("تفاصيل الألبوم", "Details", new { id = item.AlbumId }) |
+                @Html.ActionLink("حذف", "Delete", new { id = item.AlbumId })
+            </td>
+        </tr>
+    }
+
+</table>

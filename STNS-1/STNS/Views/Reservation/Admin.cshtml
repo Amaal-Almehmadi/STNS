@@ -1,0 +1,61 @@
+﻿@using STNS.Models
+@model List<Reservations>
+@{
+    ViewBag.Title = "ادارة المواعيد";
+}
+
+<h2>المواعيد</h2>
+@using (Html.BeginForm())
+{
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>اسم المستخدم</th>
+                <th>تاريخ الحجز</th>
+                <th></th>
+                <th></th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @item.UserName
+                    </td>
+                    <td>
+                        @item.ReservationDate.ToString("dd/MM/yyyy")
+                    </td>
+                    <td>
+                        @if (item.Accepted.HasValue)
+                        {
+                            if (item.Accepted == true)
+                            {
+                                <label class="label label-success">تم القبول</label>
+                            }
+                        }
+                        else
+                        {
+                            <button class="btn btn-primary" type="submit" name="Accept" value="@item.Id"><i class="glyphicon glyphicon-check"></i> قبول</button>
+                        }
+                    </td>
+                    <td>
+                        @if (item.Accepted.HasValue)
+                        {
+                            if (item.Accepted == false)
+                            {
+                                <label class="label label-danger">تم الرفض</label>
+                            }
+                        }
+                        else
+                        {
+                            <button class="btn btn-danger" type="submit" name="Reject" value="@item.Id"><i class="glyphicon glyphicon-remove-circle"></i> رفض</button>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

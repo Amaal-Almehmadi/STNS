@@ -1,0 +1,67 @@
+﻿@model STNS.Models.Parent
+
+@{
+    ViewBag.Title = "DeleteParent";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="text-align:center"> هل أنت متأكد من حذف بيانات الأم؟</h2>
+
+
+<hr />
+<div class="dl-horizontal">
+    <div class="row">
+        <div class="col-md-10">
+            @Html.DisplayFor(model => model.Parent_Name)
+        </div>
+        <div class="col-md-2">
+            <span class="head">اسم الأم</span>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-10">
+            @Html.DisplayFor(model => model.Parent_National_Id)
+        </div>
+        <div class="col-md-2">
+            <span class="head">الهوية الوطنية</span>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-10">
+            @Html.DisplayFor(model => model.Parent_Nationality)
+        </div>
+        <div class="col-md-2">
+            <span class="head">الجنسية</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10">
+            @Html.DisplayFor(model => model.Parent_password)
+        </div>
+        <div class="col-md-2">
+            <span class="head">الرقم السري</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10">
+            @Html.DisplayFor(model => model.Parent_Username)
+        </div>
+        <div class="col-md-2">
+            <span class="head">  اسم المستخدم</span>
+        </div>
+    </div>
+
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="حذف" class="btn btn-default" /> |
+            @Html.ActionLink("العودة للقائمة", "ManageParent")
+        </div>
+    }
+</div>

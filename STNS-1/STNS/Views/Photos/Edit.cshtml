@@ -1,0 +1,156 @@
+﻿@model STNS.Models.Photo
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2 style="text-align:center">تعديل بيانات الصورة</h2>
+
+
+@using (Html.BeginForm("Edit", "Photos", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.PhotoId)
+
+        <div class="container">
+
+
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-4 col-md-offset-6" style="text-align:right">
+
+                        @Html.DropDownList("AlbumId", new SelectList(ViewBag.Albums, "AlbumId", "AlbumTitle"), new { @class = "form-control" })
+
+                        @Html.ValidationMessageFor(model => model.AlbumId, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-md-2" style="text-align:right">
+                        <span class="head">الألبـــوم</span>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-4 col-md-offset-6" style="text-align:right">
+
+                        @Html.EditorFor(model => model.PhotoTitle, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.PhotoTitle, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-md-2" style="text-align:right">
+                        <span class="head">اسم الصــورة</span>
+
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-4 col-md-offset-6" style="text-align:right">
+
+                        @Html.EditorFor(model => model.photoDate, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.photoDate, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-md-2" style="text-align:right">
+                        <span class="head">تاريخ الصــورة</span>
+
+                    </div>
+                </div>
+
+            </div>
+
+
+
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-4 col-md-offset-6" style="text-align:right">
+                        <img id="blah" src="~/Files?id=@Model.UserPhoto.FileId" style="max-width:400px;" />
+                    </div>
+                    <div class="col-md-2" style="text-align:right">
+                        <span class="head"> الصــورة</span>
+
+                    </div>
+                </div>
+
+            </div>
+
+
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-4 col-md-offset-6" style="text-align:right">
+                        <input type="file" id="upload" name="upload" />
+                    </div>
+                    <div class="col-md-2">
+
+
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-4 col-md-offset-6" style="text-align:right">
+                        <input type="submit" value="حفظ" class="btn btn-default" />
+                        <div class="col-md-2">
+
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+            </div>
+
+
+
+
+
+            <div style="visibility:hidden">@Html.EditorFor(model => model.UserPhoto.FileId, new { htmlAttributes = new { @class = "form-control" } })   </div>
+
+
+
+
+        </div>
+    </div>
+
+}
+
+
+<div>
+    @Html.ActionLink("عودة للقائمة", "Index")
+</div>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<script>
+function readURL(input) {
+
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+            $('#blah').attr('src', e.target.result);
+        }
+
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+    $("#upload").change(function () {
+        readURL(this);
+    });</script>

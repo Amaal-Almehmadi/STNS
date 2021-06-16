@@ -1,0 +1,608 @@
+﻿
+@*@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    #content {
+        width: 95%;
+    }
+
+    .div-square {
+        height: 150px;
+    }
+</style>
+
+@if (Session["Admin"] != null || Session["parent"] != null || Session["teacher"] != null)
+{
+
+    <h4>الصلاحيات</h4>
+
+    if (Session["parent"] != null)
+    {
+        <div class="col-md-3">
+            <div class="div-square">
+                <a href="/Reservation">
+                    <i class="fa fa-calendar-o fa-5x"></i>
+                    <h4>حجز موعد</h4>
+                </a>
+            </div>
+
+        </div>
+        <div class="col-md-3">
+            <div class="div-square">
+                <a href="/Reservation/index">
+                    <i class="fa fa-calendar-o fa-5x"></i>
+                    <h4>حجز موعد</h4>
+                </a>
+            </div>
+
+        </div> <div class="col-md-3">
+            <div class="div-square">
+                <a href="/DoDelegation/delegation">
+                    <i class="fa fa-archive fa-5x"></i>
+                    <h4>تفويض</h4>
+                </a>
+            </div>
+
+        </div>
+        <div class="col-md-3">
+            <div class="div-square">
+                <a href="/Albums/ShowGallery">
+                    <i class="fa fa-picture-o fa-5x"></i>
+                    <h4> عرض الألبومات </h4>
+                </a>
+            </div>
+
+
+        </div>
+        <div class="col-md-3">
+            <div class="div-square">
+                <a href="/ManageParentAccount/Index">
+                    <i class="fa fa-gear fa-5x"></i>
+                    <h4>  ادارة الحساب </h4>
+                </a>
+            </div>
+
+
+        </div>
+
+        <div class="col-md-3">
+            <div class="div-square">
+                <a href="/Account/logout">
+                    <i class="fa fa-sign-out fa-5x"></i>
+                    <h4>    تسجيل خروج     </h4>
+                </a>
+            </div>
+
+
+        </div>
+
+    }
+    if (Session["teacher"] != null)
+    {
+        <div class="col-md-3">
+            <div class="div-square">
+                <a href="/ManageTeacherAccount/Index">
+                    <i class="fa fa-gear fa-5x"></i>
+                    <h4>  ادارة الحساب </h4>
+                </a>
+            </div>
+
+
+        </div>
+
+        <div class="col-md-3">
+            <div class="div-square">
+                <a href="/Albums/Index/">
+                    <i class="fa fa-file-archive-o fa-5x"></i>
+                    <h4>  ادارة الألبومات </h4>
+                </a>
+            </div>
+
+
+        </div>
+        <div class="col-md-3">
+            <div class="div-square">
+                <a href="/photos/Index/">
+                    <i class="fa fa-file-photo-o fa-5x"></i>
+                    <h4>  ادارة الصور </h4>
+                </a>
+            </div>
+
+
+        </div>
+
+        <div class="col-md-3">
+            <div class="div-square">
+                <a href="/Account/logout">
+                    <i class="fa  fa-sign-out fa-5x"></i>
+                    <h4>    تسجيل خروج     </h4>
+                </a>
+            </div>
+
+
+        </div>
+    }
+
+    if (Session["Admin"] != null)
+    {
+        <div class="col-md-3">
+            <div class="div-square">
+                <a href="/comunication/SendEmails/">
+                    <i class="fa fa-envelope-o fa-5x"></i>
+                    <h4>   ارسال ايميل </h4>
+                </a>
+            </div>
+
+
+        </div>
+        <div class="col-md-3">
+            <div class="div-square">
+                <a href="/Reservation/Admin">
+                    <i class="fa fa-calendar-o fa-5x"></i>
+                    <h4>   المواعيد  </h4>
+                </a>
+            </div>
+
+
+        </div>
+
+        <div class="col-md-3">
+            <div class="div-square">
+                <a href="/ManageAdminAccount/Index">
+                    <i class="fa fa-gear fa-5x"></i>
+                    <h4>   ادارة الحساب  </h4>
+                </a>
+            </div>
+
+
+        </div>
+
+        <div class="col-md-3">
+            <div class="div-square">
+                <a href="/program/Index">
+                    <i class="fa fa-paper-plane-o fa-5x"></i>
+                    <h4>    ادارة البرامج  </h4>
+                </a>
+            </div>
+
+
+        </div>
+
+        <div class="col-md-3">
+            <div class="div-square">
+                <a href="/Teacher/Index">
+                    <i class="fa fa-star-half-o fa-5x"></i>
+                    <h4>    ادارة  حساب المعلمة  </h4>
+                </a>
+            </div>
+
+
+        </div>
+        <div class="col-md-3">
+            <div class="div-square">
+                <a href="/ManageParent/ManageParent">
+                    <i class="fa fa-female fa-5x"></i>
+                    <h4>   ادارة حساب الوالدين  </h4>
+                </a>
+            </div>
+
+        </div>
+        <div class="col-md-3">
+            <div class="div-square">
+                <a href="/ManualRegistration/ManualRegistration">
+                    <i class="fa fa-child fa-5x"></i>
+                    <h4>  التسجيل اليدوي  </h4>
+                </a>
+            </div>
+
+
+        </div>
+        <div class="col-md-3">
+            <div class="div-square">
+                <a href="/ AcceptNominations/Index">
+                    <i class="fa fa-child fa-5x"></i>
+                    <h4>  قبول الأطفال  </h4>
+                </a>
+            </div>
+
+
+        </div>
+
+        <div class="col-md-3">
+            <div class="div-square">
+                <a href="/Account/logout">
+                    <i class="fa  fa-sign-out fa-5x"></i>
+                    <h4>    تسجيل خروج     </h4>
+                </a>
+            </div>
+
+
+        </div>
+
+    }
+
+
+    else
+    {
+        <div class="col-md-3">
+            <div class="div-square">
+                <a href="/Account/logout">
+                    <i class="fa fa-comments-o fa-5x"></i>
+                    <h4>    تسجيل خروج     </h4>
+                </a>
+            </div>
+        </div>
+
+
+    }
+
+
+
+
+
+
+}*@
+
+
+
+@{
+	ViewBag.Title = "Index";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+	#content {
+		width: 95%;
+	}
+</style>
+
+@if (Session["Admin"] != null || Session["parent"] != null || Session["teacher"] != null)
+{
+    <h2 style="text-align:center">الصلاحيات</h2>
+
+
+    if (Session["parent"] != null)
+    {
+        <div class="col-md-3">
+            <div class="div-square">
+                <a href="/ManageParentAccount/Index">
+                    <i class="fa fa-gear fa-5x"></i>
+                    <h4>  ادارة الحساب </h4>
+                </a>
+            </div>
+        </div>
+           
+		
+
+				<div class="col-md-3">
+					<div class="div-square">
+						<a href="/Reservation/Index">
+							<i class="fa fa-calendar-o fa-5x"></i>
+							<h4>حجز موعد</h4>
+						</a>
+					</div>
+                   
+				</div>    
+						<div class="col-md-3">
+							<div class="div-square">
+								<a href="/DoDelegation/delegation">
+									<i class="fa fa-file-archive-o fa-5x"></i>
+									<h4>تفويض</h4>
+								</a>
+							</div>
+                       
+						</div>    <div class="col-md-3">
+        <div class="div-square">
+            <a href="/Weekly_task/Index">
+                <i class="fa fa-gear fa-5x"></i>
+                <h4>  عرض الأنشطة الأسبوعية للأطفال </h4>
+            </a>
+        </div>
+
+    </div>
+                          <div class="col-md-3">
+        <div class="div-square">
+            <a href="/Comunication/Blogs">
+                <i class="fa fa-comment fa-5x"></i>
+                <h4> عرض التدوينات  </h4>
+            </a>
+        </div>
+    </div>   
+    
+     <div class="col-md-3">
+        <div class="div-square">
+            <a href="/Events/Index">
+                <i class="fa fa-calendar fa-5x"></i>
+                <h4> عرض الفعاليات  </h4>
+            </a>
+        </div>
+    </div>
+
+
+        <div class="col-md-3">
+            <div class="div-square">
+                <a href="/Useful_Links/Show">
+                    <i class="fa fa-link fa-5x"></i>
+                    <h4> عرض الروابط الهامة  </h4>
+                </a>
+            </div>
+        </div>
+
+
+        <div class="col-md-3">
+            <div class="div-square">
+                <a href="/Albums/ShowGallery">
+                    <i class="fa fa-folder-o fa-5x"></i>
+                    <h4> عرض الألبومات </h4>
+                </a>
+            </div>
+        </div>
+
+
+        <div class="col-md-3">
+            <div class="div-square">
+                <a href="/FAQ/Index">
+                    <i class="fa fa-question fa-5x"></i>
+                    <h4> عرض الأسئلة الشائعة  </h4>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-3 col-md-offset-4">
+            <div class="div-square">
+                <a href="/Account/logout">
+                    <i class="fa fa-sign-out fa-5x"></i>
+                    <h4>    تسجيل خروج     </h4>
+                </a>
+            </div>
+        </div>
+
+        }
+        if (Session["teacher"] != null)
+        {
+        <div class="col-md-3">
+            <div class="div-square">
+                <a href="/ManageTeacherAccount/Index">
+                    <i class="fa fa-gear fa-5x"></i>
+                    <h4>  ادارة الحساب </h4>
+                </a>
+            </div>
+
+
+        </div>
+        <div class="col-md-3">
+            <div class="div-square">
+                <a href="Weekly_Task/Index">
+                    <i class="fa fa-gear fa-5x"></i>
+                    <h4> اضافة الأنشطة الأسبوعية </h4>
+                </a>
+            </div>
+
+
+        </div>
+
+        <div class="col-md-3">
+            <div class="div-square">
+                <a href="/Albums/Index/">
+                    <i class="fa fa-file-archive-o fa-5x"></i>
+                    <h4>  ادارة الألبومات </h4>
+                </a>
+            </div>
+
+
+        </div>
+        <div class="col-md-3">
+            <div class="div-square">
+                <a href="/photos/Index/">
+                    <i class="fa fa-file-photo-o fa-5x"></i>
+                    <h4>  ادارة الصور </h4>
+                </a>
+            </div>
+
+
+        </div>
+        <div class="col-md-3">
+            <div class="div-square">
+                <a href="/Comunication/Blogs">
+                    <i class="fa fa-comment fa-5x"></i>
+                    <h4> عرض التدوينات  </h4>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="div-square">
+                <a href="/Account/logout">
+                    <i class="fa  fa-sign-out fa-5x"></i>
+                    <h4>    تسجيل خروج     </h4>
+                </a>
+            </div>
+
+
+        </div>
+        }
+
+        if (Session["Admin"] != null)
+        {
+
+        <div class="row">
+            <div class="col-md-3">
+                <div class="div-square">
+                    <a href="/ManageChild/Index">
+                        <i class="fa fa-child fa-5x"></i>
+                        <h4> إدارة الأطفال </h4>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="div-square">
+                    <a href="/FAQ/Index">
+                        <i class="fa fa-question fa-5x"></i>
+                        <h4> تعديل الأسئلة الشائعة  </h4>
+                    </a>
+                </div>
+
+
+            </div>
+            <div class="col-md-3">
+                <div class="div-square">
+                    <a href="/Useful_Links/Index">
+                        <i class="fa fa-link fa-5x"></i>
+                        <h4> تعديل الروابط الهامة  </h4>
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="div-square">
+                    <a href="/Events/Index">
+                        <i class="fa fa-calendar fa-5x"></i>
+                        <h4> تعديل الفعاليات  </h4>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="div-square">
+                    <a href="/comunication/SendEmails/">
+                        <i class="fa fa-envelope-o fa-5x"></i>
+                        <h4>   ارسال ايميل </h4>
+                    </a>
+                </div>
+
+
+            </div>
+            <div class="col-md-3">
+                <div class="div-square">
+                    <a href="/Reservation/Admin">
+                        <i class="fa fa-calendar-o fa-5x"></i>
+                        <h4>
+                            عرض المواعيد
+                        </h4>
+                    </a>
+                </div>
+
+
+            </div>
+
+            <div class="col-md-3">
+                <div class="div-square">
+                    <a href="/ManageAdminAccount/Index">
+                        <i class="fa fa-gear fa-5x"></i>
+                        <h4>   ادارة الحساب  </h4>
+                    </a>
+                </div>
+
+
+            </div>
+
+            <div class="col-md-3">
+                <div class="div-square">
+                    <a href="/program/Index">
+                        <i class="fa fa-paper-plane-o fa-5x"></i>
+                        <h4>    ادارة البرامج  </h4>
+                    </a>
+                </div>
+
+
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="div-square">
+                    <a href="/Teacher/Index">
+                        <i class="fa fa-star-half-o fa-5x"></i>
+                        <h4>    ادارة  حساب المعلمة  </h4>
+                    </a>
+                </div>
+
+
+            </div>
+            <div class="col-md-3">
+                <div class="div-square">
+                    <a href="/ManageParent/ManageParent">
+                        <i class="fa fa-female fa-5x"></i>
+                        <h4>   ادارة حساب الأم  </h4>
+                    </a>
+                </div>
+
+
+            </div>
+            <div class="col-md-3">
+                <div class="div-square">
+                    <a href="/ManualRegistration/ManualRegistration">
+                        <i class="fa fa-pencil fa-5x"></i>
+                        <h4>  التسجيل اليدوي  </h4>
+                    </a>
+                </div>
+
+
+            </div>
+            <div class="col-md-3">
+                <div class="div-square">
+                    <a href="/AcceptNominations/Index/">
+                        <i class="fa fa-book fa-5x"></i>
+                        <h4>  قبول الأطفال  </h4>
+                    </a>
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="col-md-3 ">
+            <div class="div-square">
+                <a href="ManageChild/Index">
+                    <i class="fa fa-child fa-5x"></i>
+                    <h4>   إدارة الأطفال     </h4>
+                </a>
+            </div>
+
+
+        </div>
+
+        <div class="col-md-3 ">
+            <div class="div-square">
+                <a href="/Home/Index">
+                    <i class="fa fa-download fa-5x"></i>
+                    <h4>  ادارة الشريط الاعلاني      </h4>
+                </a>
+            </div>
+
+
+        </div>
+
+        <div class="col-md-3">
+            <div class="div-square">
+                <a href="/Comunication/Blogs">
+                    <i class="fa fa-comment fa-5x"></i>
+                    <h4> عرض التدوينات  </h4>
+                </a>
+            </div>
+        </div>
+
+        <div class="col-md-3 ">
+            <div class="div-square">
+                <a href="/Account/logout">
+                    <i class="fa fa-sign-out fa-5x"></i>
+                    <h4>    تسجيل خروج     </h4>
+                </a>
+            </div>
+
+
+        </div>
+
+
+        }
+
+
+
+
+
+
+
+
+        }
+
+

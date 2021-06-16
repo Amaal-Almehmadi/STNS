@@ -1,0 +1,89 @@
+﻿@model STNS.Models.Adminstrator
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="text-align:center">انشاء حساب </h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <span class="head">
+                <label>رقم الهوية الوطني</label></span>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Admin_National_Id, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Admin_National_Id, "", new { @class = "text-danger" })
+                </div>
+        </div>
+
+        <div class="form-group">
+            <span class="head">
+                <label>الإسم</label></span>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Admin_Name, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Admin_Name, "", new { @class = "text-danger" })
+                </div>
+        </div>
+
+        <div class="form-group">
+            <span class="head">
+                <label>الجنسية</label></span>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Admin_Nationality, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Admin_Nationality, "", new { @class = "text-danger" })
+                </div>
+        </div>
+
+        <div class="form-group">
+            <span class="head">
+                <label>كلمة المرور</label></span>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Admin_password, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Admin_password, "", new { @class = "text-danger" })
+                </div>
+        </div>
+
+        <div class="form-group">
+            <span class="head">
+                <label>اسم المستخدم</label></span>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Admin_Username, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Admin_Username, "", new { @class = "text-danger" })
+                </div>
+        </div>
+
+        <div class="form-group">
+            <span class="head">
+                <label>الايميل</label></span>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Admin_Email, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Admin_Email, "", new { @class = "text-danger" })
+                </div>
+        </div>
+
+        <div class="form-group">
+            <span class="head"><label>رقم الجوال</label> </span>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Admin_Phone, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Admin_Phone, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="انشاء" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("العودة للصفحة السابقة", "Index")
+</div>

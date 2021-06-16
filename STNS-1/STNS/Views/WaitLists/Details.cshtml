@@ -1,0 +1,147 @@
+﻿@model STNS.Models.WaitList
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>WaitList</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Child_Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Child_Id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Child_Fullname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Child_Fullname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Child_Gender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Child_Gender)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Child_BirthDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Child_BirthDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Monthly_Age)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Monthly_Age)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Years_Age)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Years_Age)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Child_Nationality)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Child_Nationality)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mother_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mother_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mother_Nationality)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mother_Nationality)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mother_Nationad_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mother_Nationad_ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mother_Phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mother_Phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mother_Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mother_Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.branch)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.branch)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.age_type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.age_type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Start_date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Start_date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Other)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Other)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Request_num }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

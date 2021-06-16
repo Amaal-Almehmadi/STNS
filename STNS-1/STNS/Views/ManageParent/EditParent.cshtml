@@ -1,0 +1,102 @@
+﻿@model STNS.Models.Parent
+
+@{
+    ViewBag.Title = "EditParent";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <h2 style="text-align:center">تعديل بيانات الأم</h2>
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Parent_National_Id)
+
+        <div class="container">
+            <div class="row">
+                <div class="form-group">
+                    <div class="col-md-4 col-md-offset-6" style="text-align:right">
+                        @Html.EditorFor(model => model.Parent_Name, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Parent_Name, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-md-2" style="text-align:right">
+                        <span class="head"> اسم الأم</span>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <div class="col-md-4 col-md-offset-6" style="text-align:right">
+                        @Html.EditorFor(model => model.Parent_National_Id, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Parent_National_Id, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-md-2" style="text-align:right">
+                        <span class="head">الهوية الوطنية</span>
+
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <div class="col-md-4 col-md-offset-6" style="text-align:right">
+                        @Html.EditorFor(model => model.Parent_Nationality, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Parent_Nationality, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-md-2" style="text-align:right">
+                        <span class="head">الجنسية</span>
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <div class="col-md-4 col-md-offset-6" style="text-align:right">
+                        @Html.EditorFor(model => model.Parent_password, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Parent_password, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-md-2" style="text-align:right">
+                        <span class="head">الرقم السري</span>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group">
+                    <div class="col-md-4 col-md-offset-6" style="text-align:right">
+                        @Html.EditorFor(model => model.Parent_Username, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Parent_Username, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-md-2" style="text-align:right">
+                        <span class="head">اسم المستخدم</span>
+                    </div>
+
+
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <div class="col-md-4 col-md-offset-6" style="text-align:right">
+                    <input type="submit" value="حفظ" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+
+<div>
+    @Html.ActionLink("عودة للقائمة", "ManageParent")
+</div>

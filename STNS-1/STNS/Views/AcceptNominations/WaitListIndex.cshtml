@@ -1,0 +1,126 @@
+﻿@model IEnumerable<STNS.Models.WaitList>
+
+@{
+    ViewBag.Title = "WaitListIndex";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>WaitListIndex</h2>
+
+
+<p>
+
+</p>
+<table class="table">
+    <tr>
+        <th>
+            <span class="head">ترتيب الطفل</span>
+        </th>
+        <th>
+            <span class="head">هوية الطفل</span>
+        </th>
+        <th>
+            <span class="head">اسم الطفل الثلاثي</span>
+        </th>
+        <th>
+            <span class="head">جنس الطفل </span>
+        </th>
+        <th>
+            <span class="head">تاريخ الميلاد</span>
+        </th>
+        <th>
+            <span class="head">عمر الطفل بالأشهر</span>
+        </th>
+        <th>
+            <span class="head">عمر الطفل بالسنوات</span>
+        </th>
+        <th>
+            <span class="head">جنسية الطفل</span>
+        </th>
+        <th>
+            <span class="head"> اسم الأم</span>
+        </th>
+        <th>
+            <span class="head"> جنسية الأم</span>
+        </th>
+        <th>
+            <span class="head">هوية الأم</span>
+        </th>
+
+        <th>
+            <span class="head">جوال الأم</span>
+        </th>
+        <th>
+            <span class="head">إيميل الأم</span>
+        </th>
+        <th>
+            <span class="head">  الفرع</span>
+        </th>
+        <th>
+            <span class="head"> تاريخ البداية</span>
+        </th>
+        <th>
+            <span class="head">معلومات اخرى</span>
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Request_num)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Child_Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Child_Fullname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Child_Gender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Child_BirthDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Monthly_Age)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Years_Age)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Child_Nationality)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mother_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mother_Nationality)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mother_Nationad_ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mother_Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mother_Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.branch)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Start_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Other)
+            </td>
+            <td>
+                @Html.ActionLink("قبول", "AddToWaitList", new { id = item.Request_num }) ||
+
+            </td>
+        </tr>
+    }
+
+</table>

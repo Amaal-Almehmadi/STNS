@@ -1,0 +1,20 @@
+﻿@model IEnumerable<STNS.Models.Useful_Links>
+@{
+    ViewBag.Title = "Show";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2 style="text-align:center">روابط هامة</h2>
+
+@if (Session["Admin"] != null)
+{
+    <p>
+        @Html.ActionLink("اضافة رابط جديد", "Create")
+    </p>
+
+}
+@foreach (var link in Model)
+{
+    <div><a href="@link.Link_href" target="_blank">@link.Link_Title</a></div>
+}

@@ -1,0 +1,43 @@
+﻿@model IEnumerable<STNS.Models.FAQ>
+
+@{
+    ViewBag.Title = "الاسئلة الشائعة";
+    Layout = "~/Views/Shared/_layout.cshtml";
+}
+ <h2 style="text-align:center">الأسئلة الشائعة</h2>
+
+@if (Session["Admin"] != null)
+{
+    <p>
+        @Html.ActionLink("اضافة سؤال جديد", "Create")
+    </p>
+
+}
+@foreach (var item in Model)
+{
+    <div class="borderdDv">
+        <div class="halfDv">
+            <a href="@Url.Action("details",new { Id=item.FAQ_Number})">
+                <div>
+                    @Html.DisplayFor(modelItem => item.FAQ_Question)
+                </div>
+                <div style="color:#104f78">
+                    @Html.DisplayFor(modelItem => item.FAQ_Answer)
+                </div>
+            </a>
+        </div>
+        @if (Session["Admin"] != null)
+        {
+            <div class="halfDv">
+
+                @Html.ActionLink("تعديل", "Edit", new { id = item.FAQ_Number })
+                <text>|</text>
+
+                @Html.ActionLink("حذف", "Delete", new { id = item.FAQ_Number })
+
+
+            </div>  }
+    </div>
+}
+
+

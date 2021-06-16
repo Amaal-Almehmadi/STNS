@@ -1,0 +1,59 @@
+﻿@model STNS.Models.Weekly_Task
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="text-align:center">المهام الاسبوعية للأطفال</h2>
+
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            <span  class="head"> <label>يوم الاحد </label></span>
+</dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sun)
+        </dd>
+
+        <dt>
+            <span  class="head">  <label>يوم الاثنين </label></span>
+</dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mon)
+        </dd>
+
+        <dt>
+            <span  class="head"> <label>يوم الثلاثاء </label></span>
+</dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tue)
+        </dd>
+
+        <dt>
+            <span  class="head">  <label>يوم الاربعاء </label></span>
+</dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Wed)
+        </dd>
+
+        <dt>
+            <span  class="head">  <label>يوم الخميس </label></span>
+</dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Thu)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("تعديل", "Edit", new { id = Model.Weely_Number }) |
+    @Html.ActionLink("العودة للقائمة", "Index")
+</p>

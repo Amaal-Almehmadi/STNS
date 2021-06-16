@@ -1,0 +1,65 @@
+﻿@model STNS.Models.Weekly_Task
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<h2 style="text-align:center">هل انت متاكدة من انك تريدين حذف المهام الاسبوعية ؟</h2>
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            <span  class="head">   <label>يوم الاحد </label></span>
+</dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sun)
+        </dd>
+
+        <dt>
+            <span  class="head">   <label>يوم الاثنين </label></span>
+</dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mon)
+        </dd>
+
+        <dt>
+            <span  class="head">    <label>يوم الثلاثاء </label></span>
+</dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tue)
+        </dd>
+
+        <dt>
+            <span  class="head">   <label>يوم الاربعاء </label></span>
+</dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Wed)
+        </dd>
+
+        <dt>
+            <span  class="head">   <label>يوم الخميس </label></span>
+</dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Thu)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="حذف" class="btn btn-default" /> |
+            @Html.ActionLink("العودة للقائمة", "Index")
+        </div>
+    }
+</div>

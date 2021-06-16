@@ -1,0 +1,168 @@
+
+/*=============================================================
+    Authour URI: www.binarycart.com
+    License: Commons Attribution 3.0
+
+    http://creativecommons.org/licenses/by/3.0/
+
+    100% To use For Personal And Commercial Use.
+    IN EXCHANGE JUST GIVE US CREDITS AND TELL YOUR FRIENDS ABOUT US
+   
+    ========================================================  */
+/*==============================================
+    GENERAL  STYLES    
+    =============================================*/
+body {
+    font-family: 'Open Sans', sans-serif;
+    line-height:30px;
+}
+
+ #wrapper {
+    width: 100%;
+    margin-top:50px;
+}
+
+#page-wrapper {
+    padding: 15px 15px;
+    min-height: 600px;
+    background:#F3F3F3;
+   
+}
+#page-inner {
+    width:100%;
+    margin:10px 20px 10px 0px;
+    background-color:#fff!important;
+    padding:10px;
+    min-height:1050px;
+}
+.pad-top {
+    padding-top:15px;
+}
+/*==============================================
+    MENU STYLES    
+    =============================================*/
+
+.sidebar-collapse .nav {
+	padding:0;
+    padding-top:50px;
+}
+
+.sidebar-collapse > .nav > li > a {
+	padding:15px 10px;
+    color: #214761;
+font-weight: 900;
+font-size: 16px;
+}
+.sidebar-collapse > .nav > li {
+	border-bottom:1px solid #e1e1e1;
+}
+.sidebar-collapse .nav > li > a:hover,
+.sidebar-collapse .nav > li > a:focus {
+	
+	background:#F3F3F3;
+	outline:0;
+}
+
+.navbar-side {
+	border:none;
+	background-color: #fff;
+	
+}
+.navbar-inverse {
+
+background-color: #214761;
+border-color: #F0F0F0;
+min-height: 80px;
+}
+
+
+.nav > li > a > i {
+    margin-right:10px;
+}
+.logout-spn {
+    float:right;
+    color:#fff;
+    font-size:25px;
+    font-weight:800;
+    margin:20px;
+    margin: 10px 25px 10px 50px;
+}
+    .logout-spn a {
+        text-decoration:none;
+    }
+.active-link {
+    background-color:#f3f3f3;
+}
+    
+/*==============================================
+    DASHBOARD STYLES    
+    =============================================*/
+.div-square {
+    padding:5px;
+    border:3px double #e1e1e1;
+    -webkit-border-radius:8px;
+   -moz-border-radius:8px;
+    border-radius:8px;
+    margin:5px;
+
+}
+
+.div-square> a,.div-square> a:hover {
+    color:#808080;
+     text-decoration:none;
+}
+/*==============================================
+    FOOTER STYLES     
+    =============================================*/
+.footer {
+    background-color:#214761;
+    width:100%;
+    color:#fff;
+    padding:20px 50px 20px 50px;
+     padding-left:20px;
+}
+
+
+    .footer > a, .footer>a:hover {
+       
+        color:#fff;
+    }
+
+/*==============================================
+    MEDIA QUERIES     
+    =============================================*/
+ 
+ @media(min-width:768px) {
+     #page-wrapper{
+               margin: 0 0 0 260px;
+        padding: 15px 30px;
+        min-height: 1050px;
+		
+    }
+	
+	
+    .navbar-side {
+        z-index: 1;
+        position: absolute;
+        width: 260px;
+       
+    }
+    .head
+    {
+        font-size:18px;
+       
+    }
+    .col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12, .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12, .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12{padding-left:0px;}
+ td{vertical-align:top;text-align:left!important}
+  .form-control {
+  
+	
+	 margin:10px auto;
+    max-width: 400px;
+
+	background-color:#f9ee99;
+	
+}
+}
+
+

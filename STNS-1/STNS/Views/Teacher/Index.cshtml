@@ -1,0 +1,59 @@
+﻿@model IEnumerable<STNS.Models.Teacher>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 style="text-align:center">إعدادات بيانات المعلمة</h2>
+
+<p>
+    @Html.ActionLink("إضافة معلمـة", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th style="text-align:center">
+            <span class="head">اسم المعلمـة</span>
+        </th>
+        <th style="text-align:center">
+            <span class="head">رقم الهوية الوطنية</span>
+        </th>
+        <th style="text-align:center">
+            <span class="head"> الجنسيــة</span>
+        </th>
+        <th style="text-align:center">
+            <span class="head">كلمة المرور</span>
+        </th>
+        <th style="text-align:center">
+            <span class="head">  اسم المستخـدم</span>
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Teacher_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Teacher_National_Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Teacher_Nationality)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Teacher_password)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Teacher_Username)
+            </td>
+            <td>
+                @Html.ActionLink("تعديل", "Edit", new { id = item.Teacher_National_Id }) |
+                @Html.ActionLink("تفاصيل بيانات المعلمة", "Details", new { id = item.Teacher_National_Id }) |
+                @Html.ActionLink("حذف", "Delete", new { id = item.Teacher_National_Id })
+                @Html.ActionLink("اضافة حساب معلمة", "Create")
+            </td>
+        </tr>
+    }
+
+</table>

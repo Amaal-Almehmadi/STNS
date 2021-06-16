@@ -1,0 +1,37 @@
+﻿
+@model  STNS.Models.SendEmailModel
+@{
+    ViewBag.Title = "ارسال بريد الكتروني";
+    Layout = "~/Views/Shared/_layout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary()
+
+    <div>
+        <div>@Html.LabelFor(t => t.Subject)</div>
+        @Html.TextBoxFor(x => x.Subject, new { placeholder = Html.DisplayNameFor(t => t.Subject), @class = "txtbox" })
+
+    </div>
+    <div>
+        <div>@Html.LabelFor(t => t.EmailBody)</div>
+        @Html.TextAreaFor(x => x.EmailBody, new { placeholder = Html.DisplayNameFor(t => t.EmailBody), @class = "txtarea" })
+    </div>
+    <div>
+        @* checkboxs for the list of email parents *@
+        <h3>اختر اولياء الامور</h3>
+        @foreach (var item in Model.parents)
+        {
+            <div>
+                <label>
+                    <input type="checkbox" name="SelectedParents" value="@item.Parent_National_Id" />
+                    @item.Parent_Name <text>-</text> @item.Parent_Email
+
+                </label>
+            </div>
+        }
+    </div>
+
+    <div><input type="submit" value="ارسال" class="btn" /></div>
+}

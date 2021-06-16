@@ -1,0 +1,39 @@
+﻿@model STNS.Models.Event
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_layout.cshtml";
+}
+<div>
+    <h2 style="text-align:center">الانشطة و الفعاليات </h2>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Event_Number)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Event_Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Event_Description)
+        </dt>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DOE)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Event_Number)
+        </dd>
+
+    </dl>
+</div>
+@if (Session["Admin"] != null)
+{<p>
+
+        @Html.ActionLink("تعديل", "Edit", new { id = Model.Event_Number })
+        |
+
+        @Html.ActionLink("حذف", "Delete", new { id = Model.Event_Number })
+    </p>
+}

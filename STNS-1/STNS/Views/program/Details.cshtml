@@ -1,0 +1,40 @@
+﻿@model STNS.Models.Program
+
+@{
+    ViewBag.Title = "Details";
+}
+<h2 style="text-align:center">تفاصيل البرنامج</h2>
+
+
+<hr />
+<div class="dl-horizontal">
+    <div class="row">
+        <div class="col-md-10">
+            @Html.DisplayFor(model => model.Program_Age_ByMonth)
+        </div>
+        <div class="col-md-2">
+            <span class="head">العمـر بالأشهر</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10">
+            @Html.DisplayFor(model => model.Program_Age_ByYear)
+        </div>
+        <div class="col-md-2">
+            <span class="head">العمـر بالسنة</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10">
+            @Html.DisplayFor(model => model.Program_Name)
+        </div>
+
+        <div class="col-md-2">
+            <span class="head">اسم البرنـامج</span>
+        </div>
+    </div>
+</div><br /><br />
+<p>
+    @Html.ActionLink("تعديل", "Edit", new { id = Model.Program_Id }) |
+    @Html.ActionLink("العودة للقائمة", "Index")
+</p>

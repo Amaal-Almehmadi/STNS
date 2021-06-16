@@ -1,0 +1,206 @@
+﻿@model STNS.Models.Nomination
+
+@{
+    ViewBag.Title = "AddToWaitList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<h2 style="text-align:center">إضافة لقائمة الانتظار</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+        <hr />
+
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-md-3" style="text-align:right">
+                    @Html.EditorFor(model => model.Request_num, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+
+                <div class="col-md-3" style="text-align:right">
+                    <span class="head">ترتيب الطفل</span>
+                </div>
+
+
+
+                <div class="col-md-3" style="text-align:right">
+                    @Html.EditorFor(model => model.Child_Id, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+
+                <div class="col-md-3" style="text-align:right">
+                    <span class="head">هوية الطفل</span>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-3" style="text-align:right">
+                    @Html.EditorFor(model => model.Child_Fullname, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+
+                <div class="col-md-3" style="text-align:right">
+                    <span class="head">اسم الطفل الثلاثي</span>
+                </div>
+
+
+
+
+                <div class="col-md-3" style="text-align:right">
+                    @Html.EditorFor(model => model.Child_Gender, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+
+                <div class="col-md-3" style="text-align:right">
+                    <span class="head">جنس الطفل</span>
+                </div>
+            </div>
+
+
+
+            <div class="row">
+                <div class="col-md-3" style="text-align:right">
+                    @Html.EditorFor(model => model.Child_BirthDate, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+
+                <div class="col-md-3" style="text-align:right">
+                    <span class="head">تاريخ الميلاد</span>
+                </div>
+
+
+                <div class="col-md-3" style="text-align:right">
+                    @Html.EditorFor(model => model.Monthly_Age, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+
+                <div class="col-md-3" style="text-align:right">
+                    <span class="head">عمر الطفل بالأشهر</span>
+                </div>
+            </div>
+
+            <br />
+
+            <div class="row">
+                <div class="col-md-3" style="text-align:right">
+                    @Html.EditorFor(model => model.Years_Age, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+
+                <div class="col-md-3" style="text-align:right">
+                    <span class="head">عمر الطفل بالسنة</span>
+                </div>
+
+
+
+                <div class="col-md-3" style="text-align:right">
+                    @Html.EditorFor(model => model.Child_Nationality, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+
+                <div class="col-md-3" style="text-align:right">
+                    <span class="head">جنسية الطفل</span>
+                </div>
+            </div>
+
+
+
+            <div class="row">
+                <div class="col-md-3" style="text-align:right">
+                    @Html.EditorFor(model => model.Mother_Name, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+
+                <div class="col-md-3" style="text-align:right">
+                    <span class="head">اسم الأم</span>
+                </div>
+
+
+                <div class="col-md-3" style="text-align:right">
+                    @Html.EditorFor(model => model.Mother_Nationality, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+
+                <div class="col-md-3" style="text-align:right">
+                    <span class="head">جنسية الأم</span>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-3" style="text-align:right">
+                    @Html.EditorFor(model => model.Mother_Nationad_ID, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+
+                <div class="col-md-3" style="text-align:right">
+                    <span class="head"> هوية الأم</span>
+                </div>
+
+                <div class="col-md-3" style="text-align:right">
+                    @Html.EditorFor(model => model.Mother_Phone, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Mother_Phone, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="col-md-3" style="text-align:right">
+                    <span class="head"> رقم جوال الأم</span>
+                </div>
+            </div>
+
+
+
+            <div class="row">
+                <div class="col-md-3" style="text-align:right">
+                    @Html.EditorFor(model => model.Mother_Email, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+
+                <div class="col-md-3" style="text-align:right">
+                    <span class="head"> إيميل الأم</span>
+                </div>
+
+
+                <div class="col-md-3" style="padding-top:10px;">
+                    @Html.DropDownListFor(model => model.branch, new List<SelectListItem> {
+    new SelectListItem(){ Text = "الفرع الرئيسي", Value = "الفرع الرئيسي" },
+new SelectListItem() { Value = "السلام",Text = "السلام"  },
+new SelectListItem() { Value = "العلوم",Text = "العلوم"  },
+            new SelectListItem() { Value = "التربية",Text = "التربية" }
+        }
+    , new { @class = "form-control", @placeholder = "--اختاري احد الفروع--" })
+                </div><div class="control-label col-md-3"><p><span class="head">الفرع </span> </p> </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-3" style="text-align:right">
+                    @Html.EditorFor(model => model.Start_date, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+
+                <div class="col-md-3" style="text-align:right">
+                    <span class="head"> بداية</span>
+                </div>
+
+                <div class="col-md-3" style="text-align:right">
+                    @Html.EditorFor(model => model.Other, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+
+                <div class="col-md-3" style="text-align:right">
+                    <span class="head"> تاريخ البداية</span>
+                </div>
+            </div>
+
+
+
+            <div class="form-group">
+                <div class="col-md-4 col-md-offset-6" style="text-align:right">
+                    <input type="submit" value="حفظ" class="btn btn-default" />
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

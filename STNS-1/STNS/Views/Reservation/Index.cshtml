@@ -1,0 +1,127 @@
+﻿@using STNS.Models
+@model Reservations
+@{
+    ViewBag.Title = "حجز موعد";
+
+}
+<div class="row" >
+
+    @if (ViewBag.Message != null)
+    {
+        <div class="alert @if (ViewBag.IsSaved != null) {<text>alert-success</text> } else { <text>alert-danger</text>} ">
+            @ViewBag.Message
+        </div>
+    }
+
+
+    <div id="calendar"></div>
+</div>
+@section OutSide{
+
+    @*Bootstrap Modal Plugin for entring parent name *@
+<div id="ReservationModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">حجز موعد</h4>
+            </div>
+            @using (Html.BeginForm())
+            {
+                <div class="p5">
+
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>من فضلك ادخل اسمك</label>
+                            @Html.TextBoxFor(x => x.UserName, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label>تاريخ الحجز هو</label>
+                            @Html.TextBoxFor(x => x.ReservationDate, new { @class = "form-control", @readonly = "readonly" })
+                        </div>
+                    </div>
+                    @*, @disabled = "disabled"*@
+
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success"><i class="glyphicon glyphicon-check"></i> احجز الان</button>
+
+                    <button type="button" class="btn btn-default" data-dismiss="modal">اغلاق</button>
+                </div>
+            }
+
+        </div>
+    </div>
+
+
+</div>
+}
+
+<style>
+    #sidebar_container{
+        display:none;
+    }
+    #content{
+        width:95%;
+        margin:auto;
+        display:block;
+    }
+    .fc-day-header.fc-widget-header{
+        text-align:center !important;
+    }
+</style>
+
+
+@section scripts{
+
+    <script>
+
+        // calender javaScript + jQuery 
+        $().ready(function () {
+     //Load Reserved Dates through ajax
+            $.get("@Url.Action("GetOldReservations")", function (data) {
+                // creeat calender 
+                $('#calendar').fullCalendar({
+                header: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'month,basicWeek,basicDay'
+                },
+                defaultDate: '@DateTime.Now.ToString("yyyy-MM-dd")',
+                navLinks: true, // can click day/week names to navigate views
+                editable: false,
+                eventLimit: true, // allow "more" link when too many appointment 
+                dayClick: AddNewReservation,// اللي بيسير بعد مااضغط على يوم محدد
+                events: data//القيم اللي باخدها من الداتا بيز من خلال الاجاكس
+                });
+
+            })
+        })
+        function AddNewReservation(date, jsEvent, view) {
+
+            var SelectedDate = moment(date).format("DD/MM/YYYY");
+            var TotalReservations = 0;
+            //عشات اتأكد من عدد الحجوزات في نفس اليوم
+            var AllReservations = $('#calendar').fullCalendar('clientEvents')
+            $(AllReservations) .each(function (i, c) {
+                if (SelectedDate == c.start.format("DD/MM/YYYY")) {
+                    TotalReservations = TotalReservations + 1;
+                }
+            });
+            if (TotalReservations < 15) {
+                //عشان انسخ التاريخ اللي حجزتو و احطو في التكست بوكس
+                $("#ReservationDate").val(SelectedDate);
+
+                //view modal (bootstrap) to ensure the appointment 
+                $("#ReservationModal").modal("show");
+            }
+            else {
+                alert("Sorry No More Available Appointments in This Day.");
+            }
+        }
+    </script>
+}

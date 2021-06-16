@@ -1,0 +1,43 @@
+﻿@model STNS.Models.Album
+
+
+
+@{
+    ViewBag.Title = "Delete";
+  
+}
+
+
+<h2 style="text-align:center">هل أنت متأكدة من حذف بيانات الألبوم</h2>
+<div>
+    <hr />
+    <div class="dl-horizontal">
+        <div class="row">
+            <div class="col-md-10">
+                @Html.DisplayFor(model => model.AlbumTitle)
+            </div>
+            <div class="col-md-2">
+                <span class="head">اسم الألبـوم</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-10">
+                <img src="~/Files?id=@Model.Photo.FileId" style="max-height:250px" ; />
+            </div>
+            <div class="col-md-2">
+                <span class="head">صورة غلاف الألبـوم</span>
+            </div>
+
+        </div>
+    </div>
+
+    @using (Html.BeginForm())
+            {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="حذف" class="btn btn-default" /> |
+            @Html.ActionLink("عودة للقائمة", "Index")
+        </div>
+    }
+</div>

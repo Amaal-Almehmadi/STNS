@@ -1,0 +1,16 @@
+﻿@model IEnumerable<STNS.Models.Rotator>
+
+@{
+    ViewBag.Title = "Index";
+}
+@if (Session["Admin"] != null)
+{
+    <p>
+        @Html.ActionLink("اضافة خبر للشريط الاعلاني", "AddImage", "Home", new { id = "linkAddimage" }, null) |
+        @Html.ActionLink("حذف خبر من الشريط الاعلاني", "DeleteImages", "Home", new { id = "linkDeleteImage" }, null)
+    </p>}
+@Html.Partial("~/Views/Shared/SliderPartial.cshtml", Model)
+
+
+
+

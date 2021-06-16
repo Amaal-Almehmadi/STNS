@@ -1,0 +1,356 @@
+﻿
+
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>روضة سنابل طيبة</title>
+    <meta name="description" content="website description">
+    <meta name="keywords" content="website keywords, website keywords">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="~/Content/style.css">
+
+    <link href="~/Content/font-awesome.css" rel="stylesheet" />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+    <!-- modernizr enables HTML5 elements and feature detects -->
+    <script type="text/javascript" src="~/Content/scripts/modernizr-1.5.min.js"></script>
+    <link href="~/Content/custom.css" rel="stylesheet" />
+    @*Style for Calender*@
+    <link href='/Content/Calendar/fullcalendar.css' rel='stylesheet' />
+
+
+    <!--<script type="text/javascript" src="~/Content/scripts/jquery.js"></script> -->
+    <style>
+        .wrp {
+            text-align: center;
+            height: 100%;
+            width: 100%;
+        }
+
+            .wrp::before {
+                content: '';
+                display: inline-block;
+                height: 100%;
+                vertical-align: middle;
+            }
+
+        .icon {
+            display: inline-block;
+            font-size: 50px;
+            line-height: 30px;
+            height: 30px;
+            width: 90px;
+            margin-right: 20px;
+            color: #4099ff;
+            border-radius: 100%;
+            position: relative;
+        }
+
+            .icon::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                border-radius: 100%;
+                background: rgba(0,0,0,0.1);
+                z-index: -1;
+            }
+
+            .icon::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                margin: auto;
+                vertical-align: middle;
+                width: 100%;
+                height: 100%;
+                transform: scale(0);
+                background: #4099ff;
+                border-radius: 100%;
+                z-index: -1;
+            }
+
+            .icon:hover {
+                animation-name: bubble2;
+                animation-duration: 0.5s;
+                animation-delay: 0.1s;
+                animation-fill-mode: forwards;
+            }
+
+                .icon:hover::after {
+                    animation-name: bubble;
+                    animation-duration: 0.5s;
+                    animation-fill-mode: forwards;
+                }
+
+        .icon-twitter {
+            color: #4099ff;
+        }
+
+            .icon-twitter::after {
+                background: #4099ff;
+            }
+
+        .icon-facebook {
+            color: #3b5998;
+        }
+
+            .icon-facebook::after {
+                background: #3b5998;
+            }
+
+        .icon-instagram {
+            color: #3f729b;
+        }
+
+            .icon-instagram::after {
+                background: #3f729b;
+            }
+
+        .icon-gplus {
+            color: #dc4e41;
+        }
+
+            .icon-gplus::after {
+                background: #dc4e41;
+            }
+
+        -moz-keyframes bubble {
+            100%;
+
+        {
+            transform: scale(1);
+        }
+
+        }
+
+        -webkit-keyframes bubble {
+            100%;
+
+        {
+            transform: scale(1);
+        }
+
+        }
+
+        -o-keyframes bubble {
+            100%;
+
+        {
+            transform: scale(1);
+        }
+
+        }
+
+        keyframes bubble {
+            100%;
+
+        {
+            transform: scale(1);
+        }
+
+        }
+
+        -moz-keyframes bubble2 {
+            100%;
+
+        {
+            color: #fff;
+        }
+
+        }
+
+        -webkit-keyframes bubble2 {
+            100%;
+
+        {
+            color: #fff;
+        }
+
+        }
+
+        -o-keyframes bubble2 {
+            100%;
+
+        {
+            color: #fff;
+        }
+
+        }
+
+        keyframes bubble2 {
+            100%;
+
+        {
+            color: #fff;
+        }
+
+        }
+    </style>
+
+<body dir="rtl">
+    <div id="container">
+        <a href="/">
+            @*<a href="~/Content/fonts/glyphicons-halflings-regular.ttf">~/Content/fonts/glyphicons-halflings-regular.ttf</a>*@
+            <img src="~/Content/images/sun.png" alt="sunshine" style="max-height:300px;top: -70px;    position: relative;">
+        </a><div id="main">
+
+            <header>
+                <div id="logo">
+                    <div id="logo_text">
+                        <h1><span class="logo_colour">روضة سنابل طيبة</span></h1>
+                        <h2> Snabel Taibah Nurseery</h2>
+
+
+                    </div><a href="/">
+                        <img width="300" height="250" src="~/Content/images/stns.png" alt="logpstns" style="top: -100px;    position: absolute;    left: -.5%;">
+                    </a>
+
+                </div>
+
+                <nav>
+                    <ul class="sf-menu" id="nav">
+                        @if (Session["Admin"] == null && Session["parent"] == null && Session["teacher"] == null)
+                        {
+                            <li>
+                                <a href="/Account/Login">التسجيل</a>
+                            </li>
+                        }
+
+                        else
+                        {
+                            <li>
+                                <a href="/Account/logout">تسجيل خروج</a>
+                            </li>
+                        }
+
+                        <li><a href="/faq">الأسئلة الشائعة</a></li>
+                        <li><a href="/Useful_Links/show">روابط هامة</a></li>
+                        <li><a href="/Home/ourPrograms"> البرامج</a> </li>
+                        <li><a href="/Events/Index"> الأنشطة</a> </li>
+
+                       <li><a href="/DoNomination/stepForRegesterion"> تسجيل الأطفال</a>  </li>
+
+                        <li><a href="/Home/location">عن الروضة</a></li>
+
+                        <li><a href="/">الرئيسية</a></li>
+                    </ul>
+                </nav>
+            </header>
+            <div id="site_content">
+                @*@if (Session["Admin"] != null || Session["parent"] != null || Session["teacher"] != null)
+                    {
+                                    <div id="sidebar_container">
+                                        <div class="sidebar">
+                                            <h4>الصلاحيات</h4>
+                                            <ul>
+                                                @if (Session["parent"] != null)
+                                                {
+                                                    <li><a href="/FixAppointments/Create">حجز موعد</a></li>
+                                                    <li><a href="/Albums/ShowGallery">عرض الألبومات </a></li>
+                                                    <li> <a href="/ManageParentAccount/Index"></a>ادارة الحساب </li>
+
+                                                }
+                                                @if (Session["teacher"] != null)
+                                                {
+
+                                                    <li> <a href="/ManageTeacherAccount/Index"></a>ادارة الحساب </li>
+                                                    <li> <a href="/Albums/Index/"></a>ادارة الألبومات </li>
+                                                    <li> <a href="/photos/Index/"></a>ادارة الصور </li>
+
+                                                }
+
+                                                @if (Session["Admin"] != null)
+                                                {
+                                                    <li><a href="/comunication/SendEmails/">ارسال ايميل</a></li>
+
+                                                    <li><a href="/FixAppointments/Index">المواعيد</a></li>
+                                                    <li> <a href="/ManageAdminAccount/Index"></a>ادارة الحساب </li>
+                                                    <li> <a href="/program/Index/">ادارة البرامج</a> </li>
+                                                    <li> <a href="/Teacher/Index/">ادارة حساب المعلمة</a> </li>
+
+                                                }
+
+
+                                                else
+                                                {
+                                                    <li>
+                                                        <a href="/Account/logout">تسجيل خروج</a>
+                                                    </li>
+                                                }
+                                            </ul>
+
+                                        </div>
+
+                                    </div>
+
+
+                    }
+                    else*@
+                @if (Session["Admin"] == null && Session["parent"] == null && Session["teacher"] == null)
+                {
+
+
+                }
+                <div id="content">
+                    @RenderBody()
+
+
+                </div>
+            </div>
+            <footer style="padding-bottom:10px; padding-top:10px">
+                <div>
+                    <p style="text-align:center; height=14px; margin-bottom: 0px ;padding-bottom: 0px;">  للتواصل والاستفسار  </p>
+                    <h6 style="height=15px;padding-bottom: 0px;margin-top: -;margin-top: 0px;margin-bottom: 0px;padding-top: 0px;">  Snabel.Taibah1@gmail.com</h6>
+
+
+
+
+                    <div class="wrp"><a class="icon icon-twitter" href="https://twitter.com/sanabl_taibah?lang=ar"><i class="fa fa-twitter"></i></a><a class="icon icon-instagram" href="https://www.instagram.com/snabel.taibah1/"><i class="fa fa-instagram"></i></a><a class="icon icon-gplus" href="https://plus.google.com/u/0/116391374445520515637"><i class="fa fa-google-plus"></i></a></div>
+
+
+                    <p>
+                        جميع الحقوق محفوظة © روضة سنابل طيبة 2018
+                    </p>
+
+
+                </div>
+            </footer>
+        </div>
+    </div>
+    <div id="grass"></div>
+    @RenderSection("OutSide", false)
+    <!-- javascript at the bottom for fast page loading -->
+    <script type="text/javascript" src="~/Content/scripts/jquery.js"></script>
+    <script type="text/javascript" src="~/Content/scripts/jquery.easing-sooper.js"></script>
+    <script type="text/javascript" src="~/Content/scripts/jquery.sooperfish.js"></script>
+  
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            //$('.datepicker').datepicker();
+            $('ul.sf-menu').sooperfish();
+        });
+    </script>
+
+    <script src='/Content/Calendar/jquery.min.js'></script>
+    @*<script src="~/Scripts/jquery-1.10.2.min.js"></script>*@
+    <script src="~/Content/scripts/bootstrap.min.js"></script>
+    <script src="~/Content/scripts/ai.0.22.9-build00167.js"></script> <!--for adding calender-->
+    <script src="~/Content/scripts/ai.0.22.9-build00167.min.js"></script> <!--for adding calender-->
+    <script src="~/Content/scripts/custom.js"></script>
+    @*library for dates *@
+
+
+    <script src='/Content/Calendar/moment.min.js'></script>
+    @*javaScript for Calender library*@
+    <script src='/Content/Calendar/fullcalendar.js'></script>
+
+    @RenderSection("Scripts", false) <!--to create place holder-->
+</body>
+</html>

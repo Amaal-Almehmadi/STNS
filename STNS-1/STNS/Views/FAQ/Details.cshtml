@@ -1,0 +1,43 @@
+﻿@model STNS.Models.FAQ
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_layout.cshtml";
+}
+
+
+
+<div>
+    <h2  style="text-align:center">الاسئلة الشائعة</h2>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FAQ_Question)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FAQ_Question)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FAQ_Answer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FAQ_Answer)
+        </dd>
+
+    </dl>
+</div>
+
+@if (Session["Admin"] != null)
+{<p>
+
+        @Html.ActionLink("تعديل", "Edit", new { id = Model.FAQ_Number })
+        |
+
+        @Html.ActionLink("حذف", "Delete", new { id = Model.FAQ_Number })
+    </p>
+}
+
+

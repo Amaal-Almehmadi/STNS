@@ -1,0 +1,140 @@
+﻿@model STNS.Models.AcceptanceInfoModel
+
+@{
+    ViewBag.Title = "ManualRegistration";
+}
+<style>
+    .form-control {
+        display: inline-block;
+    }
+</style>
+<h2 style="text-align:center">التسجيل اليدوي</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ActionLink("طباعة", "print")
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ChildName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ChildName, "", new { @class = "text-danger" })
+            </div><p class="control-label col-md-2"><span class="head">اسم الطفل</span></p>
+        </div>
+
+        <div class="form-group">
+
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Year_Age, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Year_Age, "", new { @class = "text-danger" })
+            </div><p class="control-label col-md-2"><span class="head">العمر بالسنة</span></p>
+        </div>
+        <div class="form-group">
+
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Monthl_Age, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Monthl_Age, "", new { @class = "text-danger" })
+            </div><p class="control-label col-md-2"><span class="head">العمر بالأشهر</span></p>
+        </div>
+
+        <div class="form-group">
+
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ChildNational_Id, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ChildNational_Id, "", new { @class = "text-danger" })
+            </div><p class="control-label col-md-2"><span class="head">هوية الطفل</span></p>
+        </div>
+
+        <div class="form-group">
+
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ChildNationality, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ChildNationality, "", new { @class = "text-danger" })
+            </div><p class="control-label col-md-2"><span class="head">جنسية الطفل</span></p>
+        </div>
+
+        <div class="form-group">
+
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.ChildGender, new List<SelectListItem> {
+    new SelectListItem(){ Text = "ذكر", Value = "ذكر" },
+            new SelectListItem() { Value = "أنثى",Text = "أنثى"  } }, new { @class = "form-control",  })
+                @Html.ValidationMessageFor(model => model.ChildGender, "", new { @class = "text-danger" })
+            </div><p class="control-label col-md-2"><span class="head">جنس الطفل</span></p>
+        </div>
+
+
+
+
+        <div class="form-group">
+
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ChildBirthDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ChildBirthDate, "", new { @class = "text-danger" })
+            </div><p class="control-label col-md-2"><span class="head">تاريخ الميلاد</span></p>
+        </div>
+
+        <div class="form-group">
+
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Cls_Id, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Cls_Id, "", new { @class = "text-danger" })
+            </div><p class="control-label col-md-2">المرحلة</p>
+        </div>
+
+        <div class="form-group">
+
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ParentName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ParentName, "", new { @class = "text-danger" })
+            </div><p class="control-label col-md-2"><span class="head">اسم الام</span></p>
+        </div>
+
+        <div class="form-group">
+
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ParentNational_Id, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ParentNational_Id, "", new { @class = "text-danger" })
+            </div><p class="control-label col-md-2"><span class="head">هوية الأم</span></p>
+        </div>
+
+        <div class="form-group">
+
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ParentNationality, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ParentNationality, "", new { @class = "text-danger" })
+            </div><p class="control-label col-md-2"><span class="head">جنسية الأم</span></p>
+        </div>
+
+        <div class="form-group">
+
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Parentpassword, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Parentpassword, "", new { @class = "text-danger" })
+            </div><p class="control-label col-md-2"><span class="head">كلمة المرور</span></p>
+        </div>
+
+        <div class="form-group">
+
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ParentUsername, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ParentUsername, "", new { @class = "text-danger" })
+            </div><p class="control-label col-md-2"><span class="head">اسم المستخدم</span></p>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10" style="text-align:center">
+                <input type="submit" value="إضـافة" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("العودة للقائمة", "Index")
+</div>
+
+

@@ -1,0 +1,44 @@
+﻿@model STNS.Models.Useful_Links
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2 style="text-align:center">حذف الرابط</h2>
+
+<h3>هل انت متاكد انك تريد حذف هذا الرابط؟</h3>
+<div>
+   
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+        <span class="head"><label>العنوان</label></span>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Link_Title)
+        </dd>
+
+        <dt>
+            <span class="head"><label>الرابط</label></span>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Link_href)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="حذف" class="btn btn-danger" /> |
+            @Html.ActionLink("عودة الى القائمة", "Index")
+        </div>
+    }
+</div>
+
+

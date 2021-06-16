@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "Downloads";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="text-align:center">تحميل الملفات اللازمة للتسجيل</h2>
+
+
+
+
+@model List<string>
+
+<table>
+	<tr>
+		<th><span class="head">اسم المـلف</span></th>
+		<th><span class="head">الرابط</span></th>
+	</tr>
+	@for (var i = 0; i <= Model.Count - 1; i++)
+	{
+		<tr>
+			<td>@Model[i].ToString() </td>
+			<td>@Html.ActionLink("تحميل", "Download", new { ImageName = @Model[i].ToString() }) </td>
+		</tr>
+	}
+</table>
+@Html.ActionLink("الصفحة الرئيسية", "Index", "Home")
